@@ -9,7 +9,7 @@ import {
 import ExploreContainer from "../components/ExploreContainer";
 import "./Tab1.css";
 
-const Tab1: React.FC = () => {
+const MainTab: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -29,4 +29,4 @@ const Tab1: React.FC = () => {
   );
 };
 
-export default Tab1;
+export default MainTab;
