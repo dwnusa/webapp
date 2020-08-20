@@ -32,12 +32,17 @@
 }
 
 .overflow {
+  -ms-overflow-style: none;
   overflow-x: scroll;
 }
 
 .slide {
   width: fit-content;
   display: flex;
+}
+
+.overflow::-webkit-scrollbar {
+  display: none !important;
 }
 
 .grid {
