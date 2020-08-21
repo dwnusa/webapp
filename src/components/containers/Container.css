@@ -1,7 +1,7 @@
 .container {
   background-color: #393c3f;
   height: 60vh;
-  padding-top: 25vh;
+  padding-top: 15vh;
 }
 
 .container > p {
@@ -16,7 +16,7 @@
   margin-left: 20px;
 }
 
-.slide > .content {
+.content {
   width: 281px;
   height: 166px;
   margin: 20px;
@@ -49,5 +49,9 @@
   margin: auto;
   width: 100vw;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
+}
+
+.custom-tab {
+  background-color: inherit;
 }
