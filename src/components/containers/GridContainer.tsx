@@ -17,7 +17,7 @@ const GridContainer: React.FC<ContainerProps> = ({ title }) => {
     <div className="slide-container">
       <h1>{title}</h1>
       <div className="grid">
-        {[...new Array(9)].map((_, i) => (
+        {[...new Array(6)].map((_, i) => (
           <IonCard key={i}>
             <IonCardHeader>
               <IonCardSubtitle>Card Subtitle</IonCardSubtitle>

@@ -1,19 +1,14 @@
 import React from "react";
-import {
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
+import { IonPage } from "@ionic/react";
+import CalendarComponent from "../components/calendar";
+import "./RecordTab.css";
 
 const RecordTab: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 3</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <div className="calendar-container">
+        <CalendarComponent></CalendarComponent>
+      </div>
     </IonPage>
   );
 };
