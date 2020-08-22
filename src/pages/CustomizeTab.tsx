@@ -1,6 +1,8 @@
 import React from "react";
 import { IonPage, IonSegment, IonSegmentButton, IonLabel } from "@ionic/react";
 import "./CustomizeTab.css";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 
 const CustomizeTab: React.FC = () => {
   return (
@@ -24,6 +26,11 @@ const CustomizeTab: React.FC = () => {
             <IonLabel>30분</IonLabel>
           </IonSegmentButton>
         </IonSegment>
+        <AudioPlayer
+          autoPlay
+          src="https://t1.daumcdn.net/cfile/tistory/213E9D465854DA2301?original"
+          onPlay={(e) => console.log("onPlay")}
+        />
       </div>
     </IonPage>
   );
