@@ -27,7 +27,6 @@ const CustomizeTab: React.FC = () => {
           </IonSegmentButton>
         </IonSegment>
         <AudioPlayer
-          autoPlay
           src="https://t1.daumcdn.net/cfile/tistory/213E9D465854DA2301?original"
           onPlay={(e) => console.log("onPlay")}
         />
