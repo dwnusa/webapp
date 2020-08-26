@@ -1,0 +1,5 @@
+ion-tab-bar {
+  height: 83px;
+  --ion-background-color: #383c41;
+  box-shadow: 0px -5px 25px rgba(25, 25, 25, 0.25);
+}
