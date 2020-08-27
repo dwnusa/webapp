@@ -55,3 +55,9 @@
 .custom-tab {
   background-color: inherit;
 }
+
+.main {
+  background-image: url("../../assets/main.png");
+  background-size: 90vw 56vh;
+  background-repeat: no-repeat;
+}
