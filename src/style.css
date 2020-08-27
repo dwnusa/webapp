@@ -1,3 +1,9 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+* {
+  font-family: "NanumSquare" !important;
+}
+
 ion-tab-bar {
   height: 83px;
   --ion-background-color: #383c41;
