@@ -15,7 +15,7 @@ const slideOpts = {
 const SlideContainer: React.FC<ContainerProps> = ({ title }) => {
   return (
     <div className="slide-container">
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <IonSlides pager={true} options={slideOpts}>
         {[...new Array(6)].map((_, i) => {
           return (

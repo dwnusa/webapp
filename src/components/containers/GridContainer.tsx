@@ -15,7 +15,7 @@ interface ContainerProps {
 const GridContainer: React.FC<ContainerProps> = ({ title }) => {
   return (
     <div className="slide-container">
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <div className="grid">
         {[...new Array(6)].map((_, i) => (
           <IonCard key={i}>

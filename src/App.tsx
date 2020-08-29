@@ -49,15 +49,15 @@ const App: React.FC = () => (
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={homeSharp} />
-            <IonLabel>메인화면</IonLabel>
+            <IonLabel>수면 홈</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={homeSharp} />
-            <IonLabel>커스터마이징</IonLabel>
+            <IonLabel>수면 맞춤</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={homeSharp} />
-            <IonLabel>수면기록</IonLabel>
+            <IonLabel>수면 기록</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
