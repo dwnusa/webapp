@@ -21,7 +21,7 @@ interface SurveyProps {
 const Survey: React.FC<SurveyProps> = ({ setShowModal }) => {
   const [currentNum, setCurrentNum] = useState<number>(0);
   const [surveyResult, setSurveyResult] = useState<number[]>([]);
-  const [currentResult, setCurrentResult] = useState<number>();
+  const [currentResult] = useState<number>();
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
   return (
