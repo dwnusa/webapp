@@ -1,14 +1,24 @@
 import React from "react";
 import { IonAlert } from "@ionic/react";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state: any) => {
+  const { user } = state;
+  return {
+    isOpen: user.showSurveyPopup,
+  };
+};
 
 interface AlertProps {
   setShowModal: (trigger: boolean) => void;
+  isOpen: boolean;
 }
 
-const SurveyAlert: React.FC<AlertProps> = ({ setShowModal }) => {
+const SurveyAlert: React.FC<AlertProps> = ({ setShowModal, isOpen }) => {
+  console.log(isOpen);
   return (
     <IonAlert
-      isOpen={true}
+      isOpen={isOpen}
       cssClass="my-custom-class"
       header={"Info"}
       message={
@@ -29,4 +39,4 @@ const SurveyAlert: React.FC<AlertProps> = ({ setShowModal }) => {
   );
 };
 
-export default SurveyAlert;
+export default connect(mapStateToProps)(SurveyAlert);
