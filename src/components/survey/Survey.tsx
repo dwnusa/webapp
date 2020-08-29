@@ -41,7 +41,6 @@ const Survey: React.FC<SurveyProps> = ({ setShowModal }) => {
         />
         <div className="survey-wrapper">
           <IonRadioGroup
-            className="survey-group"
             value={currentResult}
             onIonChange={(e) => {
               const result = surveyResult;
