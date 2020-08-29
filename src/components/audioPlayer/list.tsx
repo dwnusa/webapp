@@ -5,8 +5,8 @@ import "./index.css";
 const List: React.FC = () => {
   return (
     <div className="grid-list">
-      {[...new Array(4)].map(() => {
-        return <ListItem></ListItem>;
+      {[...new Array(4)].map((_, i) => {
+        return <ListItem key={i}></ListItem>;
       })}
     </div>
   );
