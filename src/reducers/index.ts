@@ -1,5 +1,13 @@
 import { SET_PLAY } from "./../constants/ActionTypes";
 import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+
+const persistConfig = {
+  key: "root",
+  storage,
+  blacklist: ["audioPlayer"],
+};
 
 interface AudioPlayerInitialState {
   play: boolean;
@@ -23,4 +31,6 @@ const rootReducer = combineReducers({
   audioPlayer,
 });
 
-export default rootReducer;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export default persistedReducer;

@@ -6,12 +6,17 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducer from "./reducers";
 import logger from "redux-logger";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
 
 const store = createStore(reducer, applyMiddleware(logger));
+let persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );
