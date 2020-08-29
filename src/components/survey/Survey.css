@@ -1,3 +1,15 @@
+.survey-page-wrapper {
+  overflow: scroll;
+}
+
+.survey-wrapper {
+  padding-right: 20px;
+}
+
 .survey-group {
   margin-top: 10vh;
+}
+
+.survey-question {
+  white-space: pre-wrap !important;
 }
