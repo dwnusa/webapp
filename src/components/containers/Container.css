@@ -56,8 +56,16 @@
   background-color: inherit;
 }
 
+.main-img0 {
+  background: url("../../assets/main.png") no-repeat right;
+}
+.main-img1 {
+  background: url("../../assets/main_1.png") no-repeat right;
+}
+.main-img2 {
+  background: url("../../assets/main_2.png") no-repeat right;
+}
+
 .main {
-  background-image: url("../../assets/main.png");
   background-size: 90vw 56vh;
-  background-repeat: no-repeat;
 }
