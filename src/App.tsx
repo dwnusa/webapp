@@ -43,7 +43,7 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter history={history}>
       <IonTabs>
-        <IonRouterOutlet>
+        <IonRouterOutlet animated={false}>
           <Route path="/tab1" component={MainTab} exact={true} />
           <Route path="/tab2" component={CustomizeTab} exact={true} />
           <Route path="/tab3" component={RecordTab} />
