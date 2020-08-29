@@ -46,13 +46,6 @@
   display: none !important;
 }
 
-.grid {
-  margin: auto;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: auto auto;
-}
-
 .custom-tab {
   background-color: inherit;
 }

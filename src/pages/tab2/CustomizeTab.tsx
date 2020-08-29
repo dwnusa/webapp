@@ -1,7 +1,7 @@
 import React from "react";
 import { IonPage } from "@ionic/react";
 import "./CustomizeTab.css";
-import AudioPlayerList from "../../components/audioPlayer";
+import AudioPlayerList from "components/audioPlayer";
 
 const CustomizeTab: React.FC = () => {
   return (

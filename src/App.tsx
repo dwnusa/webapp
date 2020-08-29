@@ -14,6 +14,7 @@ import { homeSharp } from "ionicons/icons";
 import MainTab from "./pages/tab1/MainTab";
 import CustomizeTab from "./pages/tab2/CustomizeTab";
 import RecordTab from "./pages/tab3/RecordTab";
+import PlayerPage from "./pages/tab2/player";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -36,14 +37,17 @@ import "./theme/variables.css";
 
 import "./style.css";
 
+import history from "./reactHistory";
+
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
+    <IonReactRouter history={history}>
       <IonTabs>
         <IonRouterOutlet>
           <Route path="/tab1" component={MainTab} exact={true} />
           <Route path="/tab2" component={CustomizeTab} exact={true} />
           <Route path="/tab3" component={RecordTab} />
+          <Route path="/tab2/player" component={PlayerPage} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">

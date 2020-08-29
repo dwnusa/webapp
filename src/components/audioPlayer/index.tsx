@@ -5,8 +5,9 @@ import {
   IonSegment,
   IonLabel,
 } from "@ionic/react";
-import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
+
+import history from "reactHistory";
+import List from "./list";
 
 const AudioPlayerList: React.FC = () => {
   const [segmentState, setSegmentState] = useState<string>("list");
@@ -27,18 +28,11 @@ const AudioPlayerList: React.FC = () => {
           <IonLabel>담은 컨텐츠</IonLabel>
         </IonSegmentButton>
       </IonSegment>
-      {segmentState === "list" && <div>list</div>}
+      {segmentState === "list" && <List></List>}
       {segmentState === "stored" && <div>stored</div>}
-      {segmentState === "start" && (
-        <div>
-          <AudioPlayer
-            src="https://t1.daumcdn.net/cfile/tistory/213E9D465854DA2301?original"
-            onPlay={(e) => console.log("onPlay")}
-          />
-        </div>
-      )}
-
-      <IonButton onClick={() => setSegmentState("start")}>시작하기</IonButton>
+      <IonButton expand="block" onClick={() => history.push("./tab2/player")}>
+        시작하기
+      </IonButton>
     </div>
   );
 };
