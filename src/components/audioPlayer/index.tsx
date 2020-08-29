@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import {
-  IonButton,
-  IonSegmentButton,
-  IonSegment,
-  IonLabel,
-} from "@ionic/react";
+import { IonSegmentButton, IonSegment, IonLabel } from "@ionic/react";
 
-import history from "reactHistory";
 import List from "./list";
+import "./index.css";
+import StoredList from "./storedList";
 
 const AudioPlayerList: React.FC = () => {
   const [segmentState, setSegmentState] = useState<string>("list");
@@ -28,11 +24,10 @@ const AudioPlayerList: React.FC = () => {
           <IonLabel>담은 컨텐츠</IonLabel>
         </IonSegmentButton>
       </IonSegment>
-      {segmentState === "list" && <List></List>}
-      {segmentState === "stored" && <div>stored</div>}
-      <IonButton expand="block" onClick={() => history.push("./tab2/player")}>
-        시작하기
-      </IonButton>
+      <div className="list-wrapper">
+        {segmentState === "list" && <List></List>}
+        {segmentState === "stored" && <StoredList></StoredList>}
+      </div>
     </div>
   );
 };

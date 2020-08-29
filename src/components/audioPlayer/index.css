@@ -1,0 +1,72 @@
+.grid-list {
+  display: grid;
+  grid-template-columns: 164px 164px;
+  grid-template-rows: 164px 164px;
+  gap: 9px;
+}
+
+.list-item {
+  width: 164px;
+  height: 164px;
+  background: url("../../assets/sample.png");
+  background-size: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.list-wrapper {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.actions {
+  padding: 0px 10px;
+  font-size: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions ion-icon {
+  margin-left: 10px;
+}
+
+.row-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.stored-list-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  gap: 2px;
+}
+
+.stored-list-item img {
+  margin: 6px 6px 1px 6px;
+}
+
+.stored-list-item > div {
+  background-color: #33383d;
+}
+
+.delete-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-info {
+  display: flex;
+}
+
+.content-info > .text-content {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
