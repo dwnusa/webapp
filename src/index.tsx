@@ -9,7 +9,13 @@ import logger from "redux-logger";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 
-const store = createStore(reducer, applyMiddleware(logger));
+let store;
+if (process.env.NODE_ENV !== "production") {
+  store = createStore(reducer, applyMiddleware(logger));
+} else {
+  store = createStore(reducer);
+}
+
 let persistor = persistStore(store);
 
 ReactDOM.render(

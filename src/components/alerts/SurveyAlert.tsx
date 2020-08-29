@@ -15,7 +15,6 @@ interface AlertProps {
 }
 
 const SurveyAlert: React.FC<AlertProps> = ({ setShowModal, isOpen }) => {
-  console.log(isOpen);
   return (
     <IonAlert
       isOpen={isOpen}
