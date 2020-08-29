@@ -1,10 +1,12 @@
 .survey-page-wrapper {
   overflow: scroll;
 }
+.survey-page-wrapper::-webkit-scrollbar {
+  display: none;
+}
 
 .survey-wrapper {
   margin-top: 10vh;
-  padding-right: 20px;
 }
 
 .survey-question {
