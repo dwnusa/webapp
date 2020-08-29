@@ -11,9 +11,9 @@ import {
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { homeSharp } from "ionicons/icons";
-import MainTab from "./pages/MainTab";
-import CustomizeTab from "./pages/CustomizeTab";
-import RecordTab from "./pages/RecordTab";
+import MainTab from "./pages/tab1/MainTab";
+import CustomizeTab from "./pages/tab2/CustomizeTab";
+import RecordTab from "./pages/tab3/RecordTab";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";

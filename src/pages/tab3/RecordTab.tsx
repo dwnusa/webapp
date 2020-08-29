@@ -1,8 +1,8 @@
 import React from "react";
 import { IonPage } from "@ionic/react";
-import CalendarComponent from "../components/calendar";
+import CalendarComponent from "../../components/calendar";
 import "./RecordTab.css";
-import Chart1 from "../components/chart/chart1";
+import Chart1 from "../../components/chart/chart1";
 
 const RecordTab: React.FC = () => {
   return (
