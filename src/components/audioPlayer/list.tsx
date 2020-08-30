@@ -6,7 +6,7 @@ import { Content, ContentType } from "types/content";
 const contents: Content[] = [
   {
     id: 1,
-    FNAME: "",
+    FNAME: "파일 이름",
     CAT: "",
     FILE: "",
     TYPE: ContentType.Audio,
@@ -20,7 +20,7 @@ const List: React.FC = () => {
   return (
     <div className="grid-list">
       {contents.map((content, i) => {
-        return <ListItem content={content} key={i}></ListItem>;
+        return <ListItem content={content} key={i} />;
       })}
     </div>
   );

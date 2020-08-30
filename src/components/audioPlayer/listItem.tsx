@@ -3,13 +3,21 @@ import "./index.css";
 import { IonIcon } from "@ionic/react";
 import { play, arrowDown } from "ionicons/icons";
 import "./index.css";
+import { bindActionCreators } from "redux";
+import * as Actions from "actions";
+import { connect } from "react-redux";
 import { Content } from "types";
 
-interface ListItemProp {
+interface ListItemProps {
+  actions: any;
   content: Content;
 }
 
-const ListItem: React.FC<ListItemProp> = ({ content }) => {
+const mapDispatchToProps = (dispatch: any) => ({
+  actions: bindActionCreators(Actions, dispatch),
+});
+
+const ListItem: React.FC<ListItemProps> = ({ content, actions }) => {
   const listItemStyle = {
     background: `url("${content.thumbnail}")`,
     backgroundSize: "100%",
@@ -20,11 +28,16 @@ const ListItem: React.FC<ListItemProp> = ({ content }) => {
         <div>{content.playingTime}</div>
         <div>
           <IonIcon icon={play}></IonIcon>
-          <IonIcon icon={arrowDown}></IonIcon>
+          <IonIcon
+            icon={arrowDown}
+            onClick={() => {
+              actions.addContent(content);
+            }}
+          ></IonIcon>
         </div>
       </div>
     </div>
   );
 };
 
-export default ListItem;
+export default connect(null, mapDispatchToProps)(ListItem);
