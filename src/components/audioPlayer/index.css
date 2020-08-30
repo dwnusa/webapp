@@ -1,14 +1,12 @@
 .grid-list {
   display: grid;
   grid-template-columns: 164px 164px;
-  grid-template-rows: 164px 164px;
   gap: 9px;
 }
 
 .list-item {
   width: 164px;
   height: 164px;
-  background: url("../../assets/sample.png");
   background-size: 100%;
   display: flex;
   align-items: flex-end;
