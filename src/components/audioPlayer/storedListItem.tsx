@@ -7,9 +7,13 @@ import { Content } from "types";
 
 interface StoredListItemProps {
   content: Content;
+  deleteContent: (id: number) => void;
 }
 
-const StoredListItem: React.FC<StoredListItemProps> = ({ content }) => {
+const StoredListItem: React.FC<StoredListItemProps> = ({
+  content,
+  deleteContent,
+}) => {
   return (
     <div className="stored-list-item">
       <div className="content-info">
@@ -22,7 +26,12 @@ const StoredListItem: React.FC<StoredListItemProps> = ({ content }) => {
         </span>
       </div>
       <div className="delete-action">
-        <IonIcon icon={trash}></IonIcon>
+        <IonIcon
+          icon={trash}
+          onClick={() => {
+            deleteContent(content.id);
+          }}
+        ></IonIcon>
       </div>
     </div>
   );

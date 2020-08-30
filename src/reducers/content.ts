@@ -1,4 +1,5 @@
-import { ADD_CONTENT } from "./../constants/ActionTypes";
+import { DELETE_CONTENT } from "./../constants/ActionTypes";
+import { ADD_CONTENT } from "constants/ActionTypes";
 import { Content } from "types";
 
 interface contentState {
@@ -22,6 +23,14 @@ export default function content(
       } else {
         return { ...state, contents: [...state.contents, action.content] };
       }
+    case DELETE_CONTENT:
+      const filteredContents = state.contents.filter(
+        (stateContent) => stateContent.id !== action.id
+      );
+      return {
+        ...state,
+        contents: filteredContents,
+      };
     default:
       return state;
   }

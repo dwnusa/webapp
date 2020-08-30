@@ -15,3 +15,8 @@ export const addContent = (content: Content) => ({
   type: types.ADD_CONTENT,
   content,
 });
+
+export const deleteContent = (id: number) => ({
+  type: types.DELETE_CONTENT,
+  id,
+});

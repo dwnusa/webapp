@@ -25,8 +25,8 @@ const AudioPlayerList: React.FC = () => {
         </IonSegmentButton>
       </IonSegment>
       <div className="list-wrapper">
-        {segmentState === "list" && <List></List>}
-        {segmentState === "stored" && <StoredList></StoredList>}
+        {segmentState === "list" && <List />}
+        {segmentState === "stored" && <StoredList />}
       </div>
     </div>
   );

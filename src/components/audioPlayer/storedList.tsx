@@ -3,13 +3,14 @@ import "./index.css";
 import StoredListItem from "./storedListItem";
 import { IonButton } from "@ionic/react";
 import history from "reactHistory";
-import { setPlay } from "actions";
 import { connect } from "react-redux";
 import { Content } from "types";
+import { bindActionCreators } from "redux";
+import * as Actions from "actions";
 
 interface StoredListProps {
   contents: Content[];
-  setPlay: any;
+  actions: any;
 }
 
 const mapStateToProps = (state: any) => {
@@ -19,16 +20,26 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-const StoredList: React.FC<StoredListProps> = ({ setPlay, contents }) => {
+const mapDispatchToProps = (dispatch: any) => ({
+  actions: bindActionCreators(Actions, dispatch),
+});
+
+const StoredList: React.FC<StoredListProps> = ({ contents, actions }) => {
   return (
     <div className="row-list">
       {contents.map((content, i) => {
-        return <StoredListItem content={content} key={i} />;
+        return (
+          <StoredListItem
+            content={content}
+            key={i}
+            deleteContent={actions.deleteContent}
+          />
+        );
       })}
       <IonButton
         expand="block"
         onClick={() => {
-          setPlay(true);
+          actions.setPlay(true);
           history.push("./tab2/player");
         }}
       >
@@ -38,4 +49,4 @@ const StoredList: React.FC<StoredListProps> = ({ setPlay, contents }) => {
   );
 };
 
-export default connect(mapStateToProps, { setPlay })(StoredList);
+export default connect(mapStateToProps, mapDispatchToProps)(StoredList);
