@@ -38,6 +38,7 @@ const StoredList: React.FC<StoredListProps> = ({ contents, actions }) => {
       })}
       <IonButton
         expand="block"
+        disabled={contents.length === 0}
         onClick={() => {
           actions.setPlay(true);
           history.push("./tab2/player");

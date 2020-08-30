@@ -25,13 +25,13 @@ const StoredListItem: React.FC<StoredListItemProps> = ({
           <div>{content.playingTime}</div>
         </span>
       </div>
-      <div className="delete-action">
-        <IonIcon
-          icon={trash}
-          onClick={() => {
-            deleteContent(content.id);
-          }}
-        ></IonIcon>
+      <div
+        className="delete-action"
+        onClick={() => {
+          deleteContent(content.id);
+        }}
+      >
+        <IonIcon icon={trash}></IonIcon>
       </div>
     </div>
   );

@@ -1,27 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ListItem from "./listItem";
 import "./index.css";
-import { Content, ContentType } from "types/content";
-
-const contents: Content[] = [
-  {
-    id: 1,
-    FNAME: "파일 이름",
-    CAT: "",
-    FILE: "",
-    TYPE: ContentType.Audio,
-    playingTime: "10:21",
-    thumbnail: "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
-    url: "https://t1.daumcdn.net/cfile/tistory/213E9D465854DA2301?original",
-  },
-];
+import { Content } from "types/content";
 
 const List: React.FC = () => {
+  const [contentsState, contentsSetState] = useState<Content[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_BASE_URL}/content/`)
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(true);
+        contentsSetState(res);
+      });
+    setLoading(false);
+  }, []);
+
   return (
     <div className="grid-list">
-      {contents.map((content, i) => {
-        return <ListItem content={content} key={i} />;
-      })}
+      {loading &&
+        contentsState.map((content, i) => {
+          return <ListItem content={content} key={i} />;
+        })}
     </div>
   );
 };

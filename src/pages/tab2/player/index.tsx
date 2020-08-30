@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IonPage, IonFab, IonIcon, IonFooter, IonContent } from "@ionic/react";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
@@ -6,8 +6,24 @@ import { close } from "ionicons/icons";
 import history from "reactHistory";
 import sampleImg from "assets/sample.png";
 import "./index.css";
+import { connect } from "react-redux";
+import { Content } from "types";
 
-const PlayerPage: React.FC = () => {
+const mapStateToProps = (state: any) => {
+  const { content } = state;
+  return {
+    contents: content.contents,
+  };
+};
+
+interface PlayerPageProps {
+  contents: Content[];
+}
+
+const PlayerPage: React.FC<PlayerPageProps> = ({ contents }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentContent, setCurrentContent] = useState<Content>(contents[0]);
+
   return (
     <IonPage>
       <IonFab vertical="top" horizontal="end" slot="fixed">
@@ -18,12 +34,32 @@ const PlayerPage: React.FC = () => {
       </IonContent>
       <IonFooter>
         <AudioPlayer
-          src="https://t1.daumcdn.net/cfile/tistory/213E9D465854DA2301?original"
-          onPlay={(e) => console.log("onPlay")}
+          header={currentContent.FNAME}
+          src={process.env.REACT_APP_BASE_URL + currentContent.FILE}
+          autoPlay
+          showSkipControls={true}
+          onClickPrevious={() => {
+            if (currentIndex > 0) {
+              setCurrentIndex(currentIndex - 1);
+              setCurrentContent(contents[currentIndex - 1]);
+            }
+          }}
+          onClickNext={() => {
+            if (currentIndex < contents.length - 1) {
+              setCurrentIndex(currentIndex + 1);
+              setCurrentContent(contents[currentIndex + 1]);
+            }
+          }}
+          onEnded={() => {
+            if (currentIndex < contents.length - 1) {
+              setCurrentIndex(currentIndex + 1);
+              setCurrentContent(contents[currentIndex + 1]);
+            }
+          }}
         />
       </IonFooter>
     </IonPage>
   );
 };
 
-export default PlayerPage;
+export default connect(mapStateToProps)(PlayerPage);

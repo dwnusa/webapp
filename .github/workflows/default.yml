@@ -1,6 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Deploy
+env:
+  REACT_APP_BASE_URL: ${{ secrets.BASE_URL }}
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
