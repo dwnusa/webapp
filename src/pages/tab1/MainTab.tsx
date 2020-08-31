@@ -9,9 +9,10 @@ import { useParams } from "react-router-dom";
 import { get } from "services";
 import { httpStatus } from "types";
 
-const MainTab: React.FC = (props) => {
+const MainTab: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [username, setUsername] = useState("익명");
+  const [qactive, setQactive] = useState(false);
   const { userId } = useParams();
 
   useEffect(() => {
@@ -19,6 +20,7 @@ const MainTab: React.FC = (props) => {
     get(`/user/${id}`).then((res) => {
       if (res.status === httpStatus.OK) {
         setUsername(res.result[0].USERNAME);
+        setQactive(res.result[0].QACTIVE);
       }
     });
   });
@@ -27,9 +29,9 @@ const MainTab: React.FC = (props) => {
     <IonPage>
       <IonContent>
         <IonModal isOpen={showModal} cssClass="my-custom-class">
-          <Survey setShowModal={setShowModal}></Survey>
+          <Survey setShowModal={setShowModal} userId={userId}></Survey>
         </IonModal>
-        <SurveyAlert setShowModal={setShowModal}></SurveyAlert>
+        {!qactive && <SurveyAlert setShowModal={setShowModal}></SurveyAlert>}
         <MainContainer name={username} />
         <SlideContainer title="오늘의 추천 수면"></SlideContainer>
         <GridContainer title="수면 카테고리"></GridContainer>

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useCallback } from "react";
 import {
   IonButton,
   IonItem,
@@ -13,17 +13,24 @@ import {
 import { close } from "ionicons/icons";
 import "./Survey.css";
 import surveyArray from "./survey.json";
+import { post } from "services";
 
 interface SurveyProps {
   setShowModal: (trigger: boolean) => void;
+  userId: number;
 }
 
-const Survey: React.FC<SurveyProps> = ({ setShowModal }) => {
+const Survey: React.FC<SurveyProps> = ({ setShowModal, userId }) => {
   const [currentNum, setCurrentNum] = useState<number>(0);
   const [surveyResult, setSurveyResult] = useState<number[]>([]);
   const [currentResult] = useState<number>();
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
+  const updateUser = useCallback(async () => {
+    post(`/user/${userId}`, {
+      ANSWER: surveyResult.toString(),
+    });
+  }, [userId, surveyResult]);
   return (
     <Fragment>
       <div className="survey-page-wrapper">
@@ -79,6 +86,7 @@ const Survey: React.FC<SurveyProps> = ({ setShowModal }) => {
           } else {
             setShowAlert(true);
           }
+          updateUser();
         }}
       >
         {currentNum < surveyArray.length - 1 ? "다음" : "제출"}
