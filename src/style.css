@@ -14,7 +14,8 @@ ion-label,
 .text-content,
 .rhap_header,
 .custom-icon,
-div {
+div,
+h2 {
   color: white !important;
 }
 
@@ -29,4 +30,8 @@ ion-tab-bar {
   width: 100vw;
   display: grid;
   grid-template-columns: auto auto;
+}
+
+.alert-wrapper {
+  background-color: #1a1a1a;
 }
