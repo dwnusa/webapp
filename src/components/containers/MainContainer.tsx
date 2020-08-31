@@ -9,8 +9,8 @@ const MainContainer: React.FC<ContainerProps> = ({ name }) => {
   const random = Math.floor(Math.random() * 3);
   return (
     <div className={`main container main-img${random}`}>
-      <p>안녕하세요,</p>
-      <p>
+      <p style={{color: "black"}}>안녕하세요,</p>
+      <p style={{color: "black"}}>
         <strong>{name}</strong> 님
       </p>
     </div>

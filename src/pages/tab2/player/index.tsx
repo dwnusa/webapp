@@ -36,6 +36,7 @@ const PlayerPage: React.FC<PlayerPageProps> = ({ contents }) => {
         <AudioPlayer
           header={currentContent.FNAME}
           src={process.env.REACT_APP_BASE_URL + currentContent.FILE}
+          // src={`http://localhost:8000` + currentContent.FILE}
           autoPlay
           showSkipControls={true}
           onClickPrevious={() => {

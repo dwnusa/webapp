@@ -45,6 +45,7 @@ const App: React.FC = () => (
       <IonTabs>
         <IonRouterOutlet animated={false}>
           <Route path="/tab1" component={MainTab} exact={true} />
+          <Route path="/tab1/:userId" component={MainTab}/>
           <Route path="/tab2" component={CustomizeTab} exact={true} />
           <Route path="/tab3" component={RecordTab} />
           <Route path="/tab2/player" component={PlayerPage} />
