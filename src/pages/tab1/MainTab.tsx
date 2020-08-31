@@ -14,7 +14,6 @@ const MainTab: React.FC = () => {
   const { userId } = useParams();
 
   useEffect(() => {
-    // console.log(userId);
     fetch(`${process.env.REACT_APP_BASE_URL}/user/${userId}`)
       .then((res) => res.json())
       .then((res) => {
@@ -31,7 +30,6 @@ const MainTab: React.FC = () => {
           <Survey setShowModal={setShowModal} userId={userId}></Survey>
         </IonModal>
         {!qactive && <SurveyAlert setShowModal={setShowModal}></SurveyAlert>}
-        {/*<MainContainer name="김홍도" />*/}
         <MainContainer name={username} />
         <SlideContainer title="오늘의 추천 수면"></SlideContainer>
         <GridContainer title="수면 카테고리"></GridContainer>
