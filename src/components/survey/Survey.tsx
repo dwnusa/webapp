@@ -13,33 +13,24 @@ import {
 import { close } from "ionicons/icons";
 import "./Survey.css";
 import surveyArray from "./survey.json";
+import { post } from "services";
 
 interface SurveyProps {
   setShowModal: (trigger: boolean) => void;
-  userId: Number;
+  userId: number;
 }
 
 const Survey: React.FC<SurveyProps> = ({ setShowModal, userId }) => {
   const [currentNum, setCurrentNum] = useState<number>(0);
-  const [currentChoice, setCurrentChoice] = useState<number>(0);
   const [surveyResult, setSurveyResult] = useState<number[]>([]);
   const [currentResult] = useState<number>();
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
   const updateUser = useCallback(async () => {
-    console.log("Selected Choice: ", surveyResult);
-
-    fetch(`${process.env.REACT_APP_BASE_URL}/user/${userId}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        'ANSWER': surveyResult.toString(),
-      })
-    })
-    .then((res) => res.json())
-  }, [])
+    post(`/user/${userId}`, {
+      ANSWER: surveyResult.toString(),
+    });
+  }, [userId, surveyResult]);
   return (
     <Fragment>
       <div className="survey-page-wrapper">
@@ -74,12 +65,7 @@ const Survey: React.FC<SurveyProps> = ({ setShowModal, userId }) => {
             </IonListHeader>
             {surveyArray[currentNum].questions.map((question, i) => {
               return (
-                <IonItem key={i}
-                         // onClick={() => {
-                           //
-                           // setCurrentChoice(i);
-                         // }}
-                >
+                <IonItem key={i}>
                   <IonLabel className="survey-question">{question}</IonLabel>
                   <IonRadio slot="end" value={i} />
                 </IonItem>

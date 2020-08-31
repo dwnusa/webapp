@@ -2,24 +2,26 @@ import React, { useState, useEffect } from "react";
 import ListItem from "./listItem";
 import "./index.css";
 import { Content } from "types/content";
+import { get } from "services";
+import { httpStatus } from "types";
 
 const List: React.FC = () => {
   const [contentsState, contentsSetState] = useState<Content[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/content`)
-      .then((res) => res.json())
-      .then((res) => {
-        setLoading(true);
-        contentsSetState(res);
-      });
-    setLoading(false);
+    get("/content").then((res) => {
+      setLoading(false);
+      if (res.status === httpStatus.OK) {
+        contentsSetState(res.result);
+      }
+    });
+    setLoading(true);
   }, []);
 
   return (
     <div className="grid-list">
-      {loading &&
+      {!loading &&
         contentsState.map((content, i) => {
           return <ListItem content={content} key={i} />;
         })}
