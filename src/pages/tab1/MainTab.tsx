@@ -6,19 +6,22 @@ import GridContainer from "components/containers/GridContainer";
 import SurveyAlert from "components/alerts/SurveyAlert";
 import Survey from "components/survey/Survey";
 import { useParams } from "react-router-dom";
+import { get } from "services";
+import { httpStatus } from "types";
 
 const MainTab: React.FC = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [username, setUsername] = useState("익명");
   const { userId } = useParams();
+
   useEffect(() => {
-    console.log(userId);
-    fetch(`${process.env.REACT_APP_BASE_URL}/user/${userId}/`)
-      .then((res) => res.json())
-      .then((res) => {
-        setUsername(res[0].USERNAME);
-      });
-  }, []);
+    const id: number = userId || 1;
+    get(`/user/${id}`).then((res) => {
+      if (res.status === httpStatus.OK) {
+        setUsername(res.result[0].USERNAME);
+      }
+    });
+  });
 
   return (
     <IonPage>
