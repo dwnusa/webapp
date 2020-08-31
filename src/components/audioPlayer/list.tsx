@@ -9,7 +9,6 @@ const List: React.FC = () => {
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BASE_URL}/content/`)
-    // fetch(`http://localhost:8000/content/`)
       .then((res) => res.json())
       .then((res) => {
         setLoading(true);
