@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useCallback } from "react";
 import {
   IonButton,
   IonItem,
@@ -16,14 +16,30 @@ import surveyArray from "./survey.json";
 
 interface SurveyProps {
   setShowModal: (trigger: boolean) => void;
+  userId: Number;
 }
 
-const Survey: React.FC<SurveyProps> = ({ setShowModal }) => {
+const Survey: React.FC<SurveyProps> = ({ setShowModal, userId }) => {
   const [currentNum, setCurrentNum] = useState<number>(0);
+  const [currentChoice, setCurrentChoice] = useState<number>(0);
   const [surveyResult, setSurveyResult] = useState<number[]>([]);
   const [currentResult] = useState<number>();
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
+  const updateUser = useCallback(async () => {
+    console.log("Selected Choice: ", surveyResult);
+
+    fetch(`${process.env.REACT_APP_BASE_URL}/user/${userId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        'ANSWER': surveyResult.toString(),
+      })
+    })
+    .then((res) => res.json())
+  }, [])
   return (
     <Fragment>
       <div className="survey-page-wrapper">
@@ -58,7 +74,12 @@ const Survey: React.FC<SurveyProps> = ({ setShowModal }) => {
             </IonListHeader>
             {surveyArray[currentNum].questions.map((question, i) => {
               return (
-                <IonItem key={i}>
+                <IonItem key={i}
+                         // onClick={() => {
+                           //
+                           // setCurrentChoice(i);
+                         // }}
+                >
                   <IonLabel className="survey-question">{question}</IonLabel>
                   <IonRadio slot="end" value={i} />
                 </IonItem>
@@ -79,6 +100,7 @@ const Survey: React.FC<SurveyProps> = ({ setShowModal }) => {
           } else {
             setShowAlert(true);
           }
+          updateUser();
         }}
       >
         {currentNum < surveyArray.length - 1 ? "다음" : "제출"}

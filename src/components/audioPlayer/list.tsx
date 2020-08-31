@@ -8,7 +8,7 @@ const List: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/content/`)
+    fetch(`${process.env.REACT_APP_BASE_URL}/content`)
       .then((res) => res.json())
       .then((res) => {
         setLoading(true);
