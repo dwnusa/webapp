@@ -13,7 +13,8 @@ ion-label,
 .list-wrapper ion-icon,
 .text-content,
 .rhap_header,
-.custom-icon {
+.custom-icon,
+div {
   color: white !important;
 }
 

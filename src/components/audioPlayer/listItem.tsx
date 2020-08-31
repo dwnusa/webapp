@@ -7,6 +7,7 @@ import { bindActionCreators } from "redux";
 import * as Actions from "actions";
 import { connect } from "react-redux";
 import { Content } from "types";
+import history from "reactHistory";
 
 interface ListItemProps {
   actions: any;
@@ -24,16 +25,26 @@ const ListItem: React.FC<ListItemProps> = ({ content, actions }) => {
   };
   return (
     <div className="list-item" style={listItemStyle}>
-      <div className="actions">
-        <div>{content.playingTime}</div>
-        <div>
-          <IonIcon icon={play}></IonIcon>
-          <IonIcon
-            icon={arrowDown}
-            onClick={() => {
-              actions.addContent(content);
-            }}
-          ></IonIcon>
+      <div className="list-item-container">
+        <div className="file-name">{content.FNAME}</div>
+        <div className="actions">
+          <div>{content.playingTime || "00:00"}</div>
+          <div>
+            <IonIcon
+              icon={play}
+              onClick={() => {
+                actions.addContentFirstOrder(content);
+                actions.setPlay(true);
+                history.push("./tab2/player");
+              }}
+            ></IonIcon>
+            <IonIcon
+              icon={arrowDown}
+              onClick={() => {
+                actions.addContent(content);
+              }}
+            ></IonIcon>
+          </div>
         </div>
       </div>
     </div>

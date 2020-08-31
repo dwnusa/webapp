@@ -11,17 +11,17 @@ const List: React.FC = () => {
 
   useEffect(() => {
     get("/content").then((res) => {
-      setLoading(true);
+      setLoading(false);
       if (res.status === httpStatus.OK) {
         contentsSetState(res.result);
       }
     });
-    setLoading(false);
+    setLoading(true);
   }, []);
 
   return (
     <div className="grid-list">
-      {loading &&
+      {!loading &&
         contentsState.map((content, i) => {
           return <ListItem content={content} key={i} />;
         })}

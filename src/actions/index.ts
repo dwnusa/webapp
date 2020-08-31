@@ -16,6 +16,11 @@ export const addContent = (content: Content) => ({
   content,
 });
 
+export const addContentFirstOrder = (content: Content) => ({
+  type: types.ADD_CONTENT_FIRST_ORDER,
+  content,
+});
+
 export const deleteContent = (id: number) => ({
   type: types.DELETE_CONTENT,
   id,
