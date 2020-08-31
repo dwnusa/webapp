@@ -14,6 +14,7 @@ const MainTab: React.FC = () => {
   const [username, setUsername] = useState("익명");
   const [qactive, setQactive] = useState(false);
   const { userId } = useParams();
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     const id: number = userId || 1;
@@ -21,9 +22,10 @@ const MainTab: React.FC = () => {
       if (res.status === httpStatus.OK) {
         setUsername(res.result[0].USERNAME);
         setQactive(res.result[0].QACTIVE);
+        setloading(false);
       }
     });
-  });
+  }, [userId]);
 
   return (
     <IonPage>
@@ -31,7 +33,9 @@ const MainTab: React.FC = () => {
         <IonModal isOpen={showModal} cssClass="my-custom-class">
           <Survey setShowModal={setShowModal} userId={userId}></Survey>
         </IonModal>
-        {!qactive && <SurveyAlert setShowModal={setShowModal}></SurveyAlert>}
+        {!qactive && !loading && (
+          <SurveyAlert setShowModal={setShowModal}></SurveyAlert>
+        )}
         <MainContainer name={username} />
         <SlideContainer title="오늘의 추천 수면"></SlideContainer>
         <GridContainer title="수면 카테고리"></GridContainer>
