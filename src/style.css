@@ -1,7 +1,20 @@
 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 
 * {
+  --ion-background-color: #2a2d30 !important;
   font-family: "NanumSquare" !important;
+}
+
+.slide-container,
+ion-card,
+ion-label,
+.survey-page-wrapper ion-icon,
+.survey-question,
+.list-wrapper ion-icon,
+.text-content,
+.rhap_header,
+.custom-icon {
+  color: white !important;
 }
 
 ion-tab-bar {

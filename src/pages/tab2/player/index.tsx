@@ -26,7 +26,12 @@ const PlayerPage: React.FC<PlayerPageProps> = ({ contents }) => {
 
   return (
     <IonPage>
-      <IonFab vertical="top" horizontal="end" slot="fixed">
+      <IonFab
+        className="custom-icon"
+        vertical="top"
+        horizontal="end"
+        slot="fixed"
+      >
         <IonIcon icon={close} onClick={() => history.push("/tab2")} />
       </IonFab>
       <IonContent className="audio-player-img">
