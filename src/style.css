@@ -15,8 +15,12 @@ ion-label,
 .rhap_header,
 .custom-icon,
 div,
-h2 {
-  color: white !important;
+h2,
+.alert-title.sc-ion-alert-ios,
+#alert-1-msg,
+.item.sc-ion-label-ios-h,
+.item .sc-ion-label-ios-h {
+  color: white;
 }
 
 ion-tab-bar {
