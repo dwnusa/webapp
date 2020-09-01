@@ -3,7 +3,6 @@
   border: none;
   background-color: inherit;
   color: white;
-  margin-top: 10vh;
 }
 
 .react-calendar span,
@@ -42,4 +41,20 @@
 .react-calendar__navigation button[disabled],
 .react-calendar__tile--hasActive {
   background-color: inherit;
+}
+
+.record-container {
+  height: 20vh;
+  padding-top: 15vh;
+}
+
+.record-container > p {
+  margin: 5px 20px 5px;
+  font-size: 25px;
+  line-height: 26px;
+  color: white;
+}
+
+.chart {
+  margin-top: 15vh;
 }
