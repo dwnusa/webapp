@@ -4,7 +4,6 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { close } from "ionicons/icons";
 import history from "reactHistory";
-import sampleImg from "assets/sample.png";
 import "./index.css";
 import { connect } from "react-redux";
 import { Content } from "types";
@@ -26,10 +25,9 @@ const mapDispatchToProps = (dispatch: any) => ({
 interface PlayerPageProps {
   contents: Content[];
   play: boolean;
-  actions: any;
 }
 
-const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play, actions }) => {
+const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentContent, setCurrentContent] = useState<Content | null>(
     contents[0]
@@ -44,6 +42,20 @@ const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play, actions }) => {
     }
   }, [contents, play]);
 
+  const playNext = (): void => {
+    if (currentIndex < contents.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setCurrentContent(contents[currentIndex + 1]);
+    }
+  };
+
+  const playBefore = (): void => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      setCurrentContent(contents[currentIndex - 1]);
+    }
+  };
+
   return (
     <IonPage>
       <IonFab
@@ -55,7 +67,7 @@ const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play, actions }) => {
         <IonIcon icon={close} onClick={() => history.push("/tab2")} />
       </IonFab>
       <IonContent className="audio-player-img">
-        <img alt="" src={sampleImg} />
+        <img alt="" src={currentContent?.thumbnail} />
       </IonContent>
       <IonFooter>
         <AudioPlayer
@@ -67,27 +79,9 @@ const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play, actions }) => {
           }
           autoPlay
           showSkipControls={true}
-          onClickPrevious={() => {
-            if (currentIndex > 0) {
-              setCurrentIndex(currentIndex - 1);
-              setCurrentContent(contents[currentIndex - 1]);
-            }
-          }}
-          onClickNext={() => {
-            if (currentIndex < contents.length - 1) {
-              setCurrentIndex(currentIndex + 1);
-              setCurrentContent(contents[currentIndex + 1]);
-            }
-          }}
-          onEnded={() => {
-            if (currentIndex < contents.length - 1) {
-              setCurrentIndex(currentIndex + 1);
-              setCurrentContent(contents[currentIndex + 1]);
-            }
-          }}
-          onPause={() => {
-            actions.setPlay(false);
-          }}
+          onClickPrevious={playBefore}
+          onClickNext={playNext}
+          onEnded={playNext}
         />
       </IonFooter>
     </IonPage>
