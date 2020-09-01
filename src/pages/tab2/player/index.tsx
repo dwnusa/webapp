@@ -25,18 +25,21 @@ const mapDispatchToProps = (dispatch: any) => ({
 interface PlayerPageProps {
   contents: Content[];
   play: boolean;
+  actions: any;
 }
 
-const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play }) => {
+const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play, actions }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentContent, setCurrentContent] = useState<Content | null>(
     contents[0]
   );
 
   useEffect(() => {
-    if (contents.length && play) {
-      setCurrentIndex(0);
-      setCurrentContent(contents[0]);
+    if (contents.length) {
+      if (play) {
+        setCurrentIndex(0);
+        setCurrentContent(contents[0]);
+      }
     } else {
       setCurrentContent(null);
     }
@@ -82,6 +85,9 @@ const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play }) => {
           onClickPrevious={playBefore}
           onClickNext={playNext}
           onEnded={playNext}
+          onPause={() => {
+            actions.setPlay(false);
+          }}
         />
       </IonFooter>
     </IonPage>
