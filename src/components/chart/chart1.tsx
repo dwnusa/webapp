@@ -45,7 +45,7 @@ const SmallDot = (props: any) => {
 };
 const Chart1: React.FC = () => {
   return (
-    <div>
+    <div className="chart">
       <AreaChart
         width={380}
         height={100}
