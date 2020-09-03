@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import ListItem from "./listItem";
 import "./index.css";
 import { Content } from "types/content";
 import { get, post } from "services";
 import { httpStatus } from "types";
-import AudioPlayer from "react-h5-audio-player";
-import { IonFooter } from "@ionic/react";
+// import AudioPlayer from "react-h5-audio-player";
+// import { IonFooter } from "@ionic/react";
 
 const List: React.FC = () => {
   const [contentsState, contentsSetState] = useState<Content[]>([]);

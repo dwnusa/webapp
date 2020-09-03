@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState} from "react";
 import "./index.css";
 import { IonIcon } from "@ionic/react";
 import { play, arrowDown, pause } from "ionicons/icons";
@@ -6,9 +6,9 @@ import "./index.css";
 import { bindActionCreators } from "redux";
 import * as Actions from "actions";
 import { connect } from "react-redux";
-import { Content, httpStatus } from "types";
-import history from "reactHistory";
-import { get } from "../../services";
+import { Content } from "types";
+// import history from "reactHistory";
+// import { get } from "../../services";
 import AudioPlayer from "react-h5-audio-player";
 
 interface ListItemProps {
