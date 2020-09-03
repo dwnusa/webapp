@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListItem from "./listItem";
 import "./index.css";
-import { Content } from "types/content";
+import { Content, ContentType } from "types/content";
 import { get } from "services";
 import { httpStatus } from "types";
 
@@ -25,7 +25,7 @@ const List: React.FC = () => {
       <div className="grid-list">
         {!loading &&
           contentsState
-            .filter((_, i) => i < 4)
+            .filter((content) => content.TYPE === ContentType.Audio)
             .map((content, i) => {
               return <ListItem content={content} key={i} />;
             })}
@@ -34,7 +34,7 @@ const List: React.FC = () => {
       <div className="grid-list">
         {!loading &&
           contentsState
-            .filter((_, i) => i >= 4)
+            .filter((content) => content.TYPE === ContentType.Lecture)
             .map((content, i) => {
               return <ListItem content={content} key={i} />;
             })}

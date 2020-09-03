@@ -1,6 +1,6 @@
 export enum ContentType {
-  Lecture = "Lecture",
-  Audio = "Audio",
+  Lecture = "lecture",
+  Audio = "audio",
 }
 
 export interface Content {
