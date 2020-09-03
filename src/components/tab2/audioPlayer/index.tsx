@@ -7,8 +7,6 @@ import StoredList from "./storedList";
 
 const AudioPlayerList: React.FC = () => {
   const [segmentState, setSegmentState] = useState<string>("list");
-  const [allListAct, setAllListAct] = useState<boolean>(true);
-  const [storedAct, setStoredAct] = useState<boolean>(false);
 
   return (
     <div>
@@ -21,21 +19,13 @@ const AudioPlayerList: React.FC = () => {
       >
         <IonSegmentButton
           value="list"
-          className={`${allListAct ? `all-list` : ""}`}
-          onClick={() => {
-            setAllListAct(true);
-            setStoredAct(false);
-          }}
+          className={`${segmentState === "list" ? `all-list` : ""}`}
         >
           <IonLabel>전체 보기</IonLabel>
         </IonSegmentButton>
         <IonSegmentButton
           value="stored"
-          className={`${storedAct ? `sorted-list` : ""}`}
-          onClick={() => {
-            setAllListAct(false);
-            setStoredAct(true);
-          }}
+          className={`${segmentState === "stored" ? `sorted-list` : ""}`}
         >
           <IonLabel>잠! 바구니</IonLabel>
         </IonSegmentButton>
