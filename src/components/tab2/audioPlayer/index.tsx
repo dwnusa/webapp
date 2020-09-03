@@ -17,11 +17,17 @@ const AudioPlayerList: React.FC = () => {
         }}
         value={segmentState}
       >
-        <IonSegmentButton value="list">
-          <IonLabel>컨텐츠 담기</IonLabel>
+        <IonSegmentButton
+          value="list"
+          className={`${segmentState === "list" ? `all-list` : ""}`}
+        >
+          <IonLabel>전체 보기</IonLabel>
         </IonSegmentButton>
-        <IonSegmentButton value="stored">
-          <IonLabel>담은 컨텐츠</IonLabel>
+        <IonSegmentButton
+          value="stored"
+          className={`${segmentState === "stored" ? `sorted-list` : ""}`}
+        >
+          <IonLabel>잠! 바구니</IonLabel>
         </IonSegmentButton>
       </IonSegment>
       <div className="list-wrapper">

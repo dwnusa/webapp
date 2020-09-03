@@ -10,10 +10,11 @@ import {
   IonTabs,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { homeSharp } from "ionicons/icons";
+import { homeSharp, moonSharp, bookSharp } from "ionicons/icons";
 import MainTab from "./pages/tab1/MainTab";
 import CustomizeTab from "./pages/tab2/CustomizeTab";
 import RecordTab from "./pages/tab3/RecordTab";
+import RecordingPage from "./pages/tab3/recording/RecordingPage";
 import PlayerPage from "./pages/tab2/player";
 
 /* Core CSS required for Ionic components to work properly */
@@ -45,24 +46,25 @@ const App: React.FC = () => (
       <IonTabs>
         <IonRouterOutlet animated={false}>
           <Route path="/tab1" component={MainTab} exact={true} />
-          <Route path="/tab1/:userId" component={MainTab}/>
+          <Route path="/tab1/:userId" component={MainTab} />
           <Route path="/tab2" component={CustomizeTab} exact={true} />
-          <Route path="/tab3" component={RecordTab} />
+          <Route path="/tab3" component={RecordTab} exact={true} />
           <Route path="/tab2/player" component={PlayerPage} />
+          <Route path="/tab3/recording" component={RecordingPage} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={homeSharp} />
-            <IonLabel>수면 홈</IonLabel>
+            <IonLabel>홈</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={homeSharp} />
-            <IonLabel>수면 맞춤</IonLabel>
+            <IonIcon icon={moonSharp} />
+            <IonLabel>수면맞춤</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={homeSharp} />
-            <IonLabel>수면 기록</IonLabel>
+            <IonIcon icon={bookSharp} />
+            <IonLabel>기록</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

@@ -1,0 +1,26 @@
+.recording-sleep-time {
+  padding-top: 10vh;
+  padding-bottom: 4vh;
+}
+
+.recording-sleep-time > p {
+  margin: 5px 20px 5px;
+  font-size: 25px;
+  line-height: 26px;
+  color: white;
+}
+.recording-sleep-score {
+  box-sizing: border-box;
+  margin: 5px 20px 5px;
+}
+.recording-sleep-score-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.recording-sleep-score-bar > p {
+  font-size: 18px;
+  text-align: center;
+  padding-left: 10px;
+}

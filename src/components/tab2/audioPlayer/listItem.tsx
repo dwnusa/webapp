@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import { IonIcon } from "@ionic/react";
-import { play, arrowDown } from "ionicons/icons";
+import { play, arrowDown, pause } from "ionicons/icons";
 import "./index.css";
 import { bindActionCreators } from "redux";
 import * as Actions from "actions";
 import { connect } from "react-redux";
 import { Content } from "types";
-import history from "reactHistory";
+import AudioPlayer from "react-h5-audio-player";
 
 interface ListItemProps {
   actions: any;
@@ -19,10 +19,12 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 const ListItem: React.FC<ListItemProps> = ({ content, actions }) => {
+  const [playing, playingSetState] = useState<boolean>(false);
   const listItemStyle = {
     background: `url("${content.thumbnail}")`,
     backgroundSize: "100%",
   };
+
   return (
     <div className="list-item" style={listItemStyle}>
       <div className="list-item-container">
@@ -30,12 +32,17 @@ const ListItem: React.FC<ListItemProps> = ({ content, actions }) => {
         <div className="actions">
           <div>{content.playingTime || "00:00"}</div>
           <div>
+            {playing && (
+              <AudioPlayer
+                style={{ display: "none" }}
+                src={process.env.REACT_APP_BASE_URL + content.FILE}
+                autoPlay
+              />
+            )}
             <IonIcon
-              icon={play}
+              icon={`${playing ? pause : play}`}
               onClick={() => {
-                actions.addContentFirstOrder(content);
-                actions.setPlay(true);
-                history.push("./tab2/player");
+                playingSetState(!playing);
               }}
             ></IonIcon>
             <IonIcon

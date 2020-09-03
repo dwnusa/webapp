@@ -3,8 +3,8 @@ import { IonContent, IonPage, IonModal } from "@ionic/react";
 import MainContainer from "components/containers/MainContainer";
 import SlideContainer from "components/containers/SlideContainer";
 import GridContainer from "components/containers/GridContainer";
-import SurveyAlert from "components/alerts/SurveyAlert";
-import Survey from "components/survey/Survey";
+import SurveyAlert from "components/tab1/alerts/SurveyAlert";
+import Survey from "components/tab1/survey/Survey";
 import { useParams } from "react-router-dom";
 import { get } from "services";
 import { httpStatus } from "types";
@@ -37,8 +37,10 @@ const MainTab: React.FC = () => {
           <SurveyAlert setShowModal={setShowModal}></SurveyAlert>
         )}
         <MainContainer name={username} />
-        <SlideContainer title="오늘의 추천 수면"></SlideContainer>
-        <GridContainer title="수면 카테고리"></GridContainer>
+        <SlideContainer title="오늘의 추천"></SlideContainer>
+        <GridContainer title="배우기"></GridContainer>
+        <GridContainer title="따라하기"></GridContainer>
+        <GridContainer title="소리"></GridContainer>
       </IonContent>
     </IonPage>
   );
