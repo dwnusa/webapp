@@ -39,3 +39,15 @@ ion-tab-bar {
 .alert-wrapper {
   background-color: #1a1a1a !important;
 }
+
+.react_times_button {
+  background-color: transparent;
+}
+
+.preview_container {
+  color: white;
+}
+
+.outside_container.active .modal_container {
+  z-index: 200;
+}

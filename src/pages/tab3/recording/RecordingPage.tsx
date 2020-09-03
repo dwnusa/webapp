@@ -15,6 +15,8 @@ import styled from "styled-components";
 import _ from "lodash";
 import { close } from "ionicons/icons";
 import history from "reactHistory";
+import TimePicker from "react-times";
+import "react-times/css/material/default.css";
 
 const RecordingPage: React.FC = () => {
   const [value, setValue] = useState(50);
@@ -24,6 +26,10 @@ const RecordingPage: React.FC = () => {
 
   return (
     <IonPage>
+      <TimePicker colorPalette="dark"></TimePicker>
+      <TimePicker colorPalette="dark"></TimePicker>
+      <TimePicker colorPalette="dark"></TimePicker>
+      <TimePicker colorPalette="dark"></TimePicker>
       <IonFab vertical="top" horizontal="end" slot="fixed">
         <IonIcon
           icon={close}
