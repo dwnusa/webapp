@@ -7,9 +7,17 @@ import {
   IonLabel,
 } from "@ionic/react";
 import "./RecordingPage.css";
+import IconBtn from "components/tab3/iconBtn";
+import icons from "assets";
+import styled from "styled-components";
+import _ from "lodash";
 
 const RecordingPage: React.FC = () => {
   const [value, setValue] = useState(50);
+  const [activeIconArr, setActiveIconArr] = useState(
+    _.range(6).map((e) => false)
+  );
+
   return (
     <IonPage>
       <IonContent>
@@ -32,6 +40,22 @@ const RecordingPage: React.FC = () => {
             <p>{value}%</p>
           </div>
         </div>
+        <IconContainer>
+          {icons.map((icon, i) => {
+            return (
+              <IconBtn
+                active={activeIconArr[i]}
+                key={icon.text}
+                icon={icon}
+                onClick={() => {
+                  const newArr = [...activeIconArr];
+                  newArr[i] = !newArr[i];
+                  setActiveIconArr(newArr);
+                }}
+              ></IconBtn>
+            );
+          })}
+        </IconContainer>
       </IonContent>
 
       <IonButton expand="block" onClick={() => {}}>
@@ -40,5 +64,12 @@ const RecordingPage: React.FC = () => {
     </IonPage>
   );
 };
+
+const IconContainer = styled.div`
+  display: grid;
+  gap: 10px;
+  margin: 0 30px 0 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
 
 export default RecordingPage;
