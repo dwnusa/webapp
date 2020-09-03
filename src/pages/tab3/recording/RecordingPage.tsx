@@ -5,12 +5,16 @@ import {
   IonButton,
   IonRange,
   IonLabel,
+  IonFab,
+  IonIcon,
 } from "@ionic/react";
 import "./RecordingPage.css";
 import IconBtn from "components/tab3/iconBtn";
 import icons from "assets";
 import styled from "styled-components";
 import _ from "lodash";
+import { close } from "ionicons/icons";
+import history from "reactHistory";
 
 const RecordingPage: React.FC = () => {
   const [value, setValue] = useState(50);
@@ -20,6 +24,14 @@ const RecordingPage: React.FC = () => {
 
   return (
     <IonPage>
+      <IonFab vertical="top" horizontal="end" slot="fixed">
+        <IonIcon
+          icon={close}
+          onClick={() => {
+            history.push("/tab3");
+          }}
+        />
+      </IonFab>
       <IonContent>
         <div className="recording-sleep-time">
           <p>침대에 들어간 시간 입력</p>

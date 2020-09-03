@@ -5,20 +5,49 @@ import { IonIcon } from "@ionic/react";
 import { pencilSharp } from "ionicons/icons";
 import "./index.css";
 import history from "reactHistory";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 const RecordComponent: React.FC = () => {
+  const percentage1 = 60;
+  const percentage2 = 70;
+  const isRecorded = false;
+
   return (
     <Container>
       <div className="today">{moment().format("YYYY.MM.DD")}</div>
-      <div
-        className="title"
-        onClick={() => {
-          history.push("./tab3/recording");
-        }}
-      >
-        수면 기록하기
-        <IonIcon icon={pencilSharp} />
-      </div>
+      {!isRecorded && (
+        <div
+          className="title"
+          onClick={() => {
+            history.push("./tab3/recording");
+          }}
+        >
+          수면 기록하기
+          <IonIcon icon={pencilSharp} />
+        </div>
+      )}
+      {isRecorded && (
+        <div>
+          <h3 className="circular-title">오늘의 수면 상태</h3>
+          <div className="circular-container">
+            <div className="circular">
+              <CircularProgressbar
+                value={percentage1}
+                text={`${percentage1}%`}
+              />
+              <label>수면 만족도</label>
+            </div>
+            <div className="circular">
+              <CircularProgressbar
+                value={percentage2}
+                text={`${percentage2}%`}
+              />
+              <label>수면 효율성</label>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="record">
         <div>
           <div className="flex record-title-container">
@@ -50,7 +79,7 @@ const RecordComponent: React.FC = () => {
 
 const Container = styled.div`
   background-color: #34373c;
-  height: 42vh;
+  height: fit-content;
   font-size: 18px;
   .today {
     margin: 11px;
@@ -59,6 +88,26 @@ const Container = styled.div`
   .title {
     text-align: center;
     margin: 15px 0 43px;
+  }
+  .circular-title {
+    margin-left: 20px;
+  }
+  .circular-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    .circular {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      label {
+        margin-top: 10px;
+      }
+    }
+    svg {
+      width: 100px;
+      height: 100px;
+    }
   }
   .record {
     border-top: 1px solid #292d30;
