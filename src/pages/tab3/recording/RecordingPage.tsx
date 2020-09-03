@@ -15,12 +15,28 @@ import styled from "styled-components";
 import _ from "lodash";
 import { close } from "ionicons/icons";
 import history from "reactHistory";
+import TimePicker from "react-times";
+import "react-times/css/material/default.css";
+import moment from "moment";
 
 const RecordingPage: React.FC = () => {
   const [value, setValue] = useState(50);
   const [activeIconArr, setActiveIconArr] = useState(
     _.range(6).map((e) => false)
   );
+  const [activatedTimePicker, setActivatedTimePicker] = useState<number | null>(
+    null
+  );
+  const [timeArr, setTimeArr] = useState(
+    _.range(4).map((e) => moment().format("HH:MM"))
+  );
+
+  const timeInputTextArr = [
+    "침대에 들어간 시간",
+    "잠 든 시간",
+    "잠 깬 시간",
+    "침대에서 일어난 시간",
+  ];
 
   return (
     <IonPage>
@@ -32,14 +48,38 @@ const RecordingPage: React.FC = () => {
           }}
         />
       </IonFab>
-      <IonContent>
-        <div className="recording-sleep-time">
-          <p>침대에 들어간 시간 입력</p>
-          <p>잠 든 시간 입력</p>
-          <p>잠 깬 시간 입력</p>
-          <p>침대에서 일어난 시간 입력</p>
-        </div>
-      </IonContent>
+      <TimeInputContainer>
+        {timeInputTextArr.map((text, i) => {
+          return (
+            <TimePicker
+              key={i}
+              focused={activatedTimePicker === i}
+              colorPalette="dark"
+              time={timeArr[i]}
+              onTimeChange={(e: any) => {
+                const newArr = [...timeArr];
+                newArr[i] = `${e.hour}:${e.minute}`;
+                setTimeArr(newArr);
+              }}
+              trigger={
+                <div
+                  className="picker-trigger"
+                  onClick={() => {
+                    if (activatedTimePicker === i) {
+                      setActivatedTimePicker(null);
+                    } else {
+                      setActivatedTimePicker(i);
+                    }
+                  }}
+                >
+                  <span>{text}</span>
+                  <span>{timeArr[i]}</span>
+                </div>
+              }
+            ></TimePicker>
+          );
+        })}
+      </TimeInputContainer>
       <IonContent>
         <div className="recording-sleep-score">
           <IonLabel>수면 만족도</IonLabel>
@@ -82,6 +122,17 @@ const IconContainer = styled.div`
   gap: 10px;
   margin: 0 30px 0 30px;
   grid-template-columns: 1fr 1fr 1fr;
+`;
+
+const TimeInputContainer = styled.div`
+  margin-top: 5vh;
+  padding: 20px;
+  font-size: 20px;
+  .picker-trigger {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
 `;
 
 export default RecordingPage;
