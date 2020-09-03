@@ -81,3 +81,18 @@
   flex-direction: column;
   gap: 10px;
 }
+.all-list  {
+  box-sizing: border-box;
+  border-bottom: #4370FF solid;
+}
+.sorted-list {
+  box-sizing: border-box;
+  border-bottom: #4370FF solid;
+}
+.sorted-info {
+  display: flex;
+  justify-content: space-between;
+}
+.sorted-alarm {
+  color: #4370FF;
+}

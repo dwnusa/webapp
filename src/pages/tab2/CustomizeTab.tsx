@@ -8,10 +8,9 @@ const CustomizeTab: React.FC = () => {
     <IonPage>
       <IonContent>
         <div className="container custom-tab">
-          <p>오늘도 건강한 수면을</p>
-          <p>
-            <strong>스케줄링</strong> 해봐요!
-          </p>
+          <p>내게 맞는</p>
+          <p><strong>수면 프로그램</strong>을</p>
+          <p>만들어요!</p>
           <AudioPlayerList></AudioPlayerList>
         </div>
       </IonContent>

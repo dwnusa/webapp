@@ -37,8 +37,10 @@ const MainTab: React.FC = () => {
           <SurveyAlert setShowModal={setShowModal}></SurveyAlert>
         )}
         <MainContainer name={username} />
-        <SlideContainer title="오늘의 추천 수면"></SlideContainer>
-        <GridContainer title="수면 카테고리"></GridContainer>
+        <SlideContainer title="오늘의 추천"></SlideContainer>
+        <GridContainer title="배우기"></GridContainer>
+        <GridContainer title="따라하기"></GridContainer>
+        <GridContainer title="소리"></GridContainer>
       </IonContent>
     </IonPage>
   );
