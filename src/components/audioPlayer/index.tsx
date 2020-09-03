@@ -19,10 +19,24 @@ const AudioPlayerList: React.FC = () => {
         }}
         value={segmentState}
       >
-        <IonSegmentButton value="list" className={`${allListAct ? `all-list`:''}`} onClick={()=>{setAllListAct(true);setStoredAct(false); }}>
+        <IonSegmentButton
+          value="list"
+          className={`${allListAct ? `all-list` : ""}`}
+          onClick={() => {
+            setAllListAct(true);
+            setStoredAct(false);
+          }}
+        >
           <IonLabel>전체 보기</IonLabel>
         </IonSegmentButton>
-        <IonSegmentButton value="stored" className={`${storedAct ? `sorted-list`:''}`} onClick={()=>{setAllListAct(false);setStoredAct(true); }}>
+        <IonSegmentButton
+          value="stored"
+          className={`${storedAct ? `sorted-list` : ""}`}
+          onClick={() => {
+            setAllListAct(false);
+            setStoredAct(true);
+          }}
+        >
           <IonLabel>잠! 바구니</IonLabel>
         </IonSegmentButton>
       </IonSegment>

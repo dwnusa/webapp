@@ -27,31 +27,36 @@ const mapDispatchToProps = (dispatch: any) => ({
 const StoredList: React.FC<StoredListProps> = ({ contents, actions }) => {
   const [alarmAct, setAlarmAct] = useState<boolean>(true);
   return (
-      <div className="row-list">
-        <div className="sorted-info">
-          <p>총 42분 17초</p>
-          <p className={`${alarmAct ? 'sorted-alarm':''}`} onClick={()=>setAlarmAct(!alarmAct)}>30분 알림 ON</p>
-        </div>
-        {contents.map((content, i) => {
-          return (
-            <StoredListItem
-              content={content}
-              key={i}
-              deleteContent={actions.deleteContent}
-            />
-          );
-        })}
-        <IonButton
-          expand="block"
-          disabled={contents.length === 0}
-          onClick={() => {
-            actions.setPlay(true);
-            history.push("./tab2/player");
-          }}
+    <div className="row-list">
+      <div className="sorted-info">
+        <p>총 42분 17초</p>
+        <p
+          className={`${alarmAct ? "sorted-alarm" : ""}`}
+          onClick={() => setAlarmAct(!alarmAct)}
         >
-          시작하기
-        </IonButton>
+          30분 알림 ON
+        </p>
       </div>
+      {contents.map((content, i) => {
+        return (
+          <StoredListItem
+            content={content}
+            key={i}
+            deleteContent={actions.deleteContent}
+          />
+        );
+      })}
+      <IonButton
+        expand="block"
+        disabled={contents.length === 0}
+        onClick={() => {
+          actions.setPlay(true);
+          history.push("./tab2/player");
+        }}
+      >
+        시작하기
+      </IonButton>
+    </div>
   );
 };
 

@@ -9,7 +9,9 @@ const CustomizeTab: React.FC = () => {
       <IonContent>
         <div className="container custom-tab">
           <p>내게 맞는</p>
-          <p><strong>수면 프로그램</strong>을</p>
+          <p>
+            <strong>수면 프로그램</strong>을
+          </p>
           <p>만들어요!</p>
           <AudioPlayerList></AudioPlayerList>
         </div>
