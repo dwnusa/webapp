@@ -44,8 +44,9 @@
 }
 
 .record-container {
-  height: 20vh;
-  padding-top: 15vh;
+  /*height: 20vh;*/
+  /*border: red solid;*/
+  padding-top: 10vh;
 }
 
 .record-container > p {
@@ -53,6 +54,11 @@
   font-size: 25px;
   line-height: 26px;
   color: white;
+}
+
+.record-container > p:nth-last-child(1) {
+  color: #c6c6c6;
+  font-size: 14px;
 }
 
 .chart {

@@ -9,7 +9,9 @@ const RecordTab: React.FC = () => {
     <IonPage>
       <IonContent>
         <div className="record-container">
-          <p>Text</p>
+          <p>낮잠을 줄이고,</p>
+          <p>따뜻한 차를 마셔봐요</p>
+          <p>- 닥터자마</p>
         </div>
         <Chart1 />
         <RecordComponent />

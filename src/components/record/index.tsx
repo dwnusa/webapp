@@ -3,6 +3,7 @@ import styled from "styled-components";
 import moment from "moment";
 import { IonIcon } from "@ionic/react";
 import { pencilSharp } from "ionicons/icons";
+import "./index.css";
 
 const RecordComponent: React.FC = () => {
   return (
@@ -19,12 +20,15 @@ const RecordComponent: React.FC = () => {
             <span>00:00</span>
           </div>
           <div className="flex">
-            <span>이름</span>
+            <span>이름-rain.mp3</span>
             <span>00:00</span>
           </div>
           <div className="flex">
-            <span>이름</span>
+            <span>이름-beach.mp3</span>
             <span>00:00</span>
+          </div>
+          <div className="record-replay">
+            <span>다시듣기</span>
           </div>
         </div>
       </div>
