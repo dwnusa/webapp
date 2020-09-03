@@ -41,7 +41,7 @@ ion-tab-bar {
 }
 
 .react_times_button {
-  background-color: transparent;
+  background-color: #2a2d30;
 }
 
 .preview_container {
@@ -50,4 +50,9 @@ ion-tab-bar {
 
 .outside_container.active .modal_container {
   z-index: 200;
+}
+
+.modal_container {
+  width: 300px;
+  margin-left: 6%;
 }
