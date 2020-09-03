@@ -5,30 +5,16 @@ import { IonIcon } from "@ionic/react";
 import { pencilSharp } from "ionicons/icons";
 import "./index.css";
 import history from "reactHistory";
-import { bindActionCreators } from "redux";
-import * as Actions from "actions";
 
-// interface ListItemProps {
-//   actions: any;
-//   content: Content;
-// }
-//
-// const mapDispatchToProps = (dispatch: any) => ({
-//   actions: bindActionCreators(Actions, dispatch),
-// });
-
-// const RecordComponent: React.FC<ListItemProps> = ({ content, actions }) => {
-  const RecordComponent: React.FC = () => {
+const RecordComponent: React.FC = () => {
   return (
     <Container>
       <div className="today">{moment().format("YYYY.MM.DD")}</div>
-      <div className="title"
-           onClick={() => {
-             // actions.addContentFirstOrder(content);
-             // actions.setPlay(true);
-             history.push("./tab3/recording");
-             // history.push("./tab2/player");
-           }}
+      <div
+        className="title"
+        onClick={() => {
+          history.push("./tab3/recording");
+        }}
       >
         수면 기록하기
         <IonIcon icon={pencilSharp} />
@@ -50,8 +36,6 @@ import * as Actions from "actions";
           <div className="record-replay">
             <span
               onClick={() => {
-                // actions.addContentFirstOrder(content);
-                // actions.setPlay(true);
                 history.push("./tab2/player");
               }}
             >

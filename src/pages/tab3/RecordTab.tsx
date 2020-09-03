@@ -1,8 +1,8 @@
 import React from "react";
 import { IonPage, IonContent } from "@ionic/react";
 import "./RecordTab.css";
-import Chart1 from "components/chart/chart1";
-import RecordComponent from "components/record";
+import Chart1 from "components/tab3/chart/chart1";
+import RecordComponent from "components/tab3/record";
 
 const RecordTab: React.FC = () => {
   return (

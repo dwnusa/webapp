@@ -14,7 +14,7 @@ import { homeSharp, moonSharp, bookSharp } from "ionicons/icons";
 import MainTab from "./pages/tab1/MainTab";
 import CustomizeTab from "./pages/tab2/CustomizeTab";
 import RecordTab from "./pages/tab3/RecordTab";
-import RecordingPage from "./pages/tab3/RecordingPage";
+import RecordingPage from "./pages/tab3/recording/RecordingPage";
 import PlayerPage from "./pages/tab2/player";
 
 /* Core CSS required for Ionic components to work properly */
