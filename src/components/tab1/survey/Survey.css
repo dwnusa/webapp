@@ -12,3 +12,6 @@
 .survey-question {
   white-space: pre-wrap !important;
 }
+.alert-message.sc-ion-alert-ios, .alert-input-group.sc-ion-alert-ios{
+  color: white;
+}
