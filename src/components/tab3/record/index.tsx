@@ -20,7 +20,7 @@ const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
   // const isRecorded = true;
   const [isRecorded, setisRecorded] = useState(false);
   const [existRecord, setexistRecord] = useState(false);
-  const [contentCount, setcontentCount] = useState<number>(0);
+  const [, setcontentCount] = useState<number>(0);
   // setisRecorded(true);
   // const todayCheck = useCallback( ()=> {
   //   console.log("useCallback");
