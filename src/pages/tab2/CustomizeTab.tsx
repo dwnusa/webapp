@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 const CustomizeTab: React.FC = () => {
   const { userId } = useParams();
-  console.log("userId: ",userId)
+  // console.log("userId: ",userId)
   return (
     <IonPage>
       <IonContent>

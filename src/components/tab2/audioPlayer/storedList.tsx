@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 const StoredList: React.FC<StoredListProps> = ({ contents, actions, userId }) => {
   const [alarmAct, setAlarmAct] = useState<boolean>(true);
-  console.log("deep: ", userId)
+  // console.log("deep: ", userId)
   return (
     <div className="row-list">
       <div className="sorted-info">

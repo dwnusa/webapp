@@ -25,6 +25,8 @@ export interface Record {
   endAt: string,
   finishAt: string,
   sleepDuration: string,
+  contentsDuration: string,
+  contentsCount:number,
   value: number,
   opt1Cafe: boolean,
   opt2Nap: boolean,
