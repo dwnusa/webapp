@@ -15,3 +15,7 @@
 .rhap_time {
   color: white !important;
 }
+.custom-tab > p {
+  /*border: red solid;*/
+  height: 36px;
+}
