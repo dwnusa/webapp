@@ -72,6 +72,7 @@ class App extends Component {
             <IonRouterOutlet animated={false}>
               {/*<Route path="/tab1" component={MainTab} exact={true} />*/}
               {/*<Route path="/tab1/:userId" component={MainTab} />*/}
+              <Route path="/:userId" render={(props) => <Redirect to={`/tab1/${props.match.params.userId}`} />} exact={true} />
               <Route path="/tab1/:userId" render={() => <MainTab updateUserId={this.updateUserId}/>}/>
               <Route path="/tab2/:userId/player" component={PlayerPage} />
               <Route path="/tab2/:userId" component={CustomizeTab} exact={true}/>
@@ -81,7 +82,6 @@ class App extends Component {
               <Route path="/tab3/:userId/recorded" component={RecordTab} exact={true} />
               <Route path="/tab3/:userId" component={RecordTab} exact={true}/>
               {/*<Route path="/tab3" component={RecordTab} exact={true}/>*/}
-              <Route path="/:userId" render={(props) => <Redirect to={`/tab1/${props.match.params.userId}`} />} exact={true} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="tab1" href={`/tab1/${this.state.userId}`}>
