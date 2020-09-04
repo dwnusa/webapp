@@ -1,9 +1,8 @@
 .audio-player-img {
-  top: 20vh;
   text-align: center;
 }
 
 .audio-player-img > img {
-  width: 322px;
-  height: 322px;
+  width: 100vw;
+  height: 76vh;
 }
