@@ -102,6 +102,9 @@ const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
 };
 
 const Container = styled.div`
+  .CircularProgressbar-path {
+    stroke: #4370FF;
+  }
   background-color: #34373c;
   height: fit-content;
   font-size: 18px;
@@ -134,7 +137,7 @@ const Container = styled.div`
     }
   }
   .record {
-    border-top: 1px solid #292d30;
+    border-top: 1px solid #4370FF;
     margin: 22px;
     padding: 10px;
     .flex {

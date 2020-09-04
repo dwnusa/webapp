@@ -1,4 +1,7 @@
 .record-replay {
   text-align: right;
-  color: #4370ff;
+  color: #4370FF;
+}
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #4370FF;
 }
