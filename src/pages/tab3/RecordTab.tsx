@@ -11,12 +11,12 @@ import { useParams, useLocation } from "react-router-dom";
 const RecordTab: React.FC = () => {
   const [loading, setloading] = useState(true);
   const [recordsState, recordsSetState] = useState<Record[]>([]);
-  const [pathnameState, pathnameSetState] = useState<string>();
+  const [, pathnameSetState] = useState<string>();
   const { userId } = useParams();
   const {pathname} = useLocation();
   const id: number = userId || 1;
   useEffect(() => {
-    console.log("id: ", id);
+    // console.log("id: ", id);
     get(`/record/user/${id}`).then((res) => {
       setloading(true);
       if (res.status === httpStatus.OK) {
@@ -24,7 +24,7 @@ const RecordTab: React.FC = () => {
       }
       setloading(false);
     });
-    console.log("location.pathname: ", pathnameState);
+    // console.log("location.pathname: ", pathnameState);
     return () => pathnameSetState(pathname);
   }, [pathname]);
   return (

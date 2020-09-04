@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import moment from "moment";
 import { IonIcon } from "@ionic/react";
@@ -24,11 +24,17 @@ const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
   //   console.log("useCallback");
   // }, []);
   useEffect(() => {
-    const today = moment().format("YYYY-MM-DD");
-    console.log("today: ", today);
-    console.log("latest record: ", records[0].date);
-    console.log("same? ", today===records[0].date);
-    setisRecorded(today===records[0].date);
+    console.log("records: ", records.length)
+    if (records.length === 0){
+      setisRecorded(false);
+    }
+    else{
+      const today = moment().format("YYYY-MM-DD");
+      // console.log("today: ", today);
+      // console.log("latest record: ", records[0].date);
+      // console.log("same? ", today===records[0].date);
+      setisRecorded(today===records[0].date);
+    }
   }, [isRecorded]);
 
   return (
