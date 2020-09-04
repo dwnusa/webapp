@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
 import moment from "moment";
 import { IonIcon } from "@ionic/react";
@@ -7,11 +7,29 @@ import "./index.css";
 import history from "reactHistory";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { Record } from "../../../types";
 
-const RecordComponent: React.FC = () => {
+interface RecordComponentProps {
+  records: Record[];
+  userId: number;
+}
+
+const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
   const percentage1 = 60;
   const percentage2 = 70;
-  const isRecorded = false;
+  // const isRecorded = true;
+  const [isRecorded, setisRecorded] = useState(false);
+  // setisRecorded(true);
+  // const todayCheck = useCallback( ()=> {
+  //   console.log("useCallback");
+  // }, []);
+  useEffect(() => {
+    const today = moment().format("YYYY-MM-DD");
+    console.log("today: ", today);
+    console.log("latest record: ", records[0].date);
+    console.log("same? ", today===records[0].date);
+    setisRecorded(today===records[0].date);
+  }, [isRecorded]);
 
   return (
     <Container>
@@ -20,7 +38,7 @@ const RecordComponent: React.FC = () => {
         <div
           className="title"
           onClick={() => {
-            history.push("./tab3/recording");
+            history.push("./"+userId+"/recording");
           }}
         >
           수면 기록하기

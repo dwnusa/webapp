@@ -19,7 +19,7 @@ const slideOpts = {
 };
 
 const SlideContainer: React.FC<ContainerProps> = ({ title,contents,recommend }) => {
-  console.log("contents: ", contents)
+  // console.log("contents: ", contents)
   return (
     <div className="slide-container">
       <h2>{title}</h2>
@@ -43,11 +43,12 @@ const SlideContainer: React.FC<ContainerProps> = ({ title,contents,recommend }) 
               {/*</IonCardHeader>*/}
               {/*  <div style={{background: `url(${contents[v].thumbnail})`, backgroundSize: "100%", width:"100%", height:"100%"}}>aaa</div>*/}
                 <div style={{display:"flex", alignItems:"center", width: "160px", height:"160px"}}>
-                  <img src={`${contents[v].thumbnail}`} alt="nothing"/>
+                  <img src={`${contents[v].thumbnail}`} alt="nothing" style={{height:"90%"}}/>
                 </div>
                 <div className="content-text-box">
                   <div>{contents[v].TITLE}</div>
-                  <div>{contents[v].COMMENT1}</div>
+                  <br/>
+                  <div>"{contents[v].COMMENT1}"</div>
                   <div>{contents[v].COMMENT2}</div>
                 </div>
               </div>

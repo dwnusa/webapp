@@ -8,7 +8,11 @@ import { useParams } from "react-router-dom";
 import { get } from "services";
 import { Content, httpStatus } from "types";
 
-const MainTab: React.FC = () => {
+interface MainTabProps {
+  updateUserId: (id:number)=>void;
+}
+
+const MainTab: React.FC<MainTabProps> = ({updateUserId}) => {
   const [showModal, setShowModal] = useState(false);
   const [username, setUsername] = useState("익명");
   const [qactive, setQactive] = useState(false);
@@ -35,6 +39,7 @@ const MainTab: React.FC = () => {
       setloadingContents(false);
     });
     setloading(true);
+    updateUserId(id);
 
   }, [userId]);
   return (

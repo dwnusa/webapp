@@ -16,3 +16,20 @@ export interface Content {
   thumbnail: string;
   url: string;
 }
+
+export interface Record {
+  id: number,
+  date: string,
+  readyAt: string,
+  startAt: string,
+  endAt: string,
+  finishAt: string,
+  sleepDuration: string,
+  value: number,
+  opt1Cafe: boolean,
+  opt2Nap: boolean,
+  opt3Work: boolean,
+  opt4Snack: boolean,
+  opt5Ach: boolean,
+  opt6Med: boolean,
+}

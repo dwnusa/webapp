@@ -31,6 +31,7 @@ const Survey: React.FC<SurveyProps> = ({ setShowModal, userId }) => {
       ANSWER: surveyResult.toString(),
     });
   }, [userId, surveyResult]);
+
   return (
     <Fragment>
       <div className="survey-page-wrapper">

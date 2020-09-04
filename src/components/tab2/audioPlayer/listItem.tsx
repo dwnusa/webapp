@@ -28,7 +28,7 @@ const ListItem: React.FC<ListItemProps> = ({ content, actions }) => {
   return (
     <div className="list-item" style={listItemStyle}>
       <div className="list-item-container">
-        <div className="file-name">{content.FNAME}</div>
+        <div className="file-name">{content.TITLE}</div>
         <div className="actions">
           <div>{content.playingTime || "00:00"}</div>
           <div>

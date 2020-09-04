@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   IonPage,
   IonContent,
@@ -18,9 +18,12 @@ import history from "reactHistory";
 import TimePicker from "react-times";
 import "react-times/css/material/default.css";
 import moment from "moment";
+import { post } from "../../../services";
+import { useParams } from "react-router-dom";
 
 const RecordingPage: React.FC = () => {
   const [value, setValue] = useState(50);
+  const { userId } = useParams();
   const [activeIconArr, setActiveIconArr] = useState(
     _.range(6).map((e) => false)
   );
@@ -37,6 +40,24 @@ const RecordingPage: React.FC = () => {
     "잠 깬 시간",
     "침대에서 일어난 시간",
   ];
+  const updateRecord = useCallback(async () => {
+    post(`/record/user/${userId}`, {
+      date: "2020-09-04",
+      readyAt: "20:00:00",
+      startAt: "23:00:00",
+      endAt: "06:00:00",
+      finishAt: "02:00:00",
+      sleepDuration: "2:00:00",
+      value: 50,
+      opt1Cafe: false,
+      opt2Nap: false,
+      opt3Work: false,
+      opt4Snack: false,
+      opt5Ach: false,
+      opt6Med: false,
+    });
+    console.log("updateRecord")
+  }, [userId]);
 
   return (
     <IonPage>
@@ -44,7 +65,7 @@ const RecordingPage: React.FC = () => {
         <IonIcon
           icon={close}
           onClick={() => {
-            history.push("/tab3");
+            history.push("/tab3/"+userId);
           }}
         />
       </IonFab>
@@ -110,7 +131,11 @@ const RecordingPage: React.FC = () => {
         </IconContainer>
       </IonContent>
 
-      <IonButton expand="block" onClick={() => {}}>
+      <IonButton expand="block" onClick={() => {
+        updateRecord();
+        // history.push("/tab3/"+userId+"/recorded");
+        history.push("/tab3/"+userId);
+      }}>
         저장하기
       </IonButton>
     </IonPage>
