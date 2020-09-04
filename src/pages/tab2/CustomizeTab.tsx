@@ -2,8 +2,11 @@ import React from "react";
 import { IonPage, IonContent } from "@ionic/react";
 import "./CustomizeTab.css";
 import AudioPlayerList from "components/tab2/audioPlayer";
+import { useParams } from "react-router-dom";
 
 const CustomizeTab: React.FC = () => {
+  const { userId } = useParams();
+  console.log("userId: ",userId)
   return (
     <IonPage>
       <IonContent>
@@ -13,7 +16,7 @@ const CustomizeTab: React.FC = () => {
             <strong>수면 프로그램</strong>을
           </p>
           <p>만들어요!</p>
-          <AudioPlayerList></AudioPlayerList>
+          <AudioPlayerList userId={userId}></AudioPlayerList>
         </div>
       </IonContent>
     </IonPage>

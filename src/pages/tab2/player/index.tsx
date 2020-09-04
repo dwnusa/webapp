@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { Content } from "types";
 import { bindActionCreators } from "redux";
 import * as Actions from "actions";
+import { useParams } from "react-router-dom";
 
 const mapStateToProps = (state: any) => {
   const { content, audioPlayer } = state;
@@ -30,6 +31,7 @@ interface PlayerPageProps {
 
 const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play, actions }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { userId } = useParams();
   const [currentContent, setCurrentContent] = useState<Content | null>(
     contents[0]
   );
@@ -67,7 +69,7 @@ const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play, actions }) => {
         horizontal="end"
         slot="fixed"
       >
-        <IonIcon icon={close} onClick={() => history.push("/tab2")} />
+        <IonIcon icon={close} onClick={() => history.push("/tab2/"+userId)} />
       </IonFab>
       <IonContent className="audio-player-img">
         <img alt="" src={currentContent?.thumbnail} />

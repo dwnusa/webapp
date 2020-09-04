@@ -4,8 +4,13 @@ import { IonSegmentButton, IonSegment, IonLabel } from "@ionic/react";
 import List from "./list";
 import "./index.css";
 import StoredList from "./storedList";
+import { Content } from "../../../types";
 
-const AudioPlayerList: React.FC = () => {
+interface AudioProps {
+  userId: number;
+}
+
+const AudioPlayerList: React.FC<AudioProps> = ({userId}) => {
   const [segmentState, setSegmentState] = useState<string>("list");
 
   return (
@@ -32,7 +37,7 @@ const AudioPlayerList: React.FC = () => {
       </IonSegment>
       <div className="list-wrapper">
         {segmentState === "list" && <List />}
-        {segmentState === "stored" && <StoredList />}
+        {segmentState === "stored" && <StoredList userId={userId}/>}
       </div>
     </div>
   );

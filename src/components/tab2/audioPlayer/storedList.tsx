@@ -11,6 +11,7 @@ import * as Actions from "actions";
 interface StoredListProps {
   contents: Content[];
   actions: any;
+  userId: number;
 }
 
 const mapStateToProps = (state: any) => {
@@ -24,8 +25,9 @@ const mapDispatchToProps = (dispatch: any) => ({
   actions: bindActionCreators(Actions, dispatch),
 });
 
-const StoredList: React.FC<StoredListProps> = ({ contents, actions }) => {
+const StoredList: React.FC<StoredListProps> = ({ contents, actions, userId }) => {
   const [alarmAct, setAlarmAct] = useState<boolean>(true);
+  console.log("deep: ", userId)
   return (
     <div className="row-list">
       <div className="sorted-info">
@@ -51,7 +53,7 @@ const StoredList: React.FC<StoredListProps> = ({ contents, actions }) => {
         disabled={contents.length === 0}
         onClick={() => {
           actions.setPlay(true);
-          history.push("./tab2/player");
+          history.push("./"+userId+"/player");
         }}
       >
         시작하기

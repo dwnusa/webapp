@@ -70,24 +70,25 @@ class App extends Component {
         <IonReactRouter history={history}>
           <IonTabs>
             <IonRouterOutlet animated={false}>
-              <Route path="/" render={() => <Redirect to={`/tab1/${this.state.userId}`} />} exact={true} />
-              <Route path="/tab1" component={MainTab} exact={true} />
+              {/*<Route path="/tab1" component={MainTab} exact={true} />*/}
               {/*<Route path="/tab1/:userId" component={MainTab} />*/}
-              <Route path="/tab1/:userId" render={props => <MainTab updateUserId={this.updateUserId}/>}/>
-              <Route path="/tab2/player" component={PlayerPage} />
-              <Route path="/tab2" component={CustomizeTab} exact={true}/>
-              <Route path="/tab3" component={RecordTab} exact={true}/>
+              <Route path="/tab1/:userId" render={() => <MainTab updateUserId={this.updateUserId}/>}/>
+              <Route path="/tab2/:userId/player" component={PlayerPage} />
+              <Route path="/tab2/:userId" component={CustomizeTab} exact={true}/>
+              {/*<Route path="/:userId" render={() => <MainTab updateUserId={this.updateUserId}/>} exact={true} />*/}
+              {/*<Route path="/tab3" component={RecordTab} exact={true}/>*/}
               <Route path="/tab3/:userId/recording" component={RecordingPage} exact={true} />
               <Route path="/tab3/:userId/recorded" component={RecordTab} exact={true} />
               <Route path="/tab3/:userId" component={RecordTab} exact={true}/>
-              <Route path="/tab3" component={RecordTab} exact={true}/>
+              {/*<Route path="/tab3" component={RecordTab} exact={true}/>*/}
+              <Route path="/:userId" render={(props) => <Redirect to={`/tab1/${props.match.params.userId}`} />} exact={true} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="tab1" href={`/tab1/${this.state.userId}`}>
                 <IonIcon icon={homeSharp} />
                 <IonLabel>홈</IonLabel>
               </IonTabButton>
-              <IonTabButton tab="tab2" href={`/tab2`}>
+              <IonTabButton tab="tab2" href={`/tab2/${this.state.userId}`}>
                 <IonIcon icon={moonSharp} />
                 <IonLabel>수면맞춤</IonLabel>
               </IonTabButton>
