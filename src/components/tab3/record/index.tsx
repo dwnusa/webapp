@@ -40,7 +40,7 @@ const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
       setexistRecord(true);
       // setcontentCount(records[0].contentsCount);
       setcontentCount(10);
-      console.log(contentCount);
+      // console.log(contentCount);
     }
   }, [isRecorded, records]);
   console.log(existRecord, records)
