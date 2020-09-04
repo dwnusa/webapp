@@ -7,7 +7,7 @@ import SurveyAlert from "components/tab1/alerts/SurveyAlert";
 import Survey from "components/tab1/survey/Survey";
 import { useParams } from "react-router-dom";
 import { get } from "services";
-import { httpStatus } from "types";
+import { Content, httpStatus } from "types";
 
 const MainTab: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -15,6 +15,8 @@ const MainTab: React.FC = () => {
   const [qactive, setQactive] = useState(false);
   const { userId } = useParams();
   const [loading, setloading] = useState(true);
+  const [loadingContents, setloadingContents] = useState(true);
+  const [contentsState, contentsSetState] = useState<Content[]>([]);
 
   useEffect(() => {
     const id: number = userId || 1;
@@ -25,8 +27,17 @@ const MainTab: React.FC = () => {
         setloading(false);
       }
     });
-  }, [userId]);
 
+    get("/content").then((res) => {
+      setloadingContents(true);
+      if (res.status === httpStatus.OK) {
+        contentsSetState(res.result);
+      }
+      setloadingContents(false);
+    });
+    setloading(true);
+
+  }, [userId]);
   return (
     <IonPage>
       <IonContent>
@@ -37,10 +48,10 @@ const MainTab: React.FC = () => {
           <SurveyAlert setShowModal={setShowModal}></SurveyAlert>
         )}
         <MainContainer name={username} />
-        <SlideContainer title="오늘의 추천"></SlideContainer>
-        <GridContainer title="배우기"></GridContainer>
-        <GridContainer title="따라하기"></GridContainer>
-        <GridContainer title="소리"></GridContainer>
+        {!loadingContents && <SlideContainer title="오늘의 추천" contents={contentsState} recommend={[5, 6, 7, 3]}></SlideContainer> }
+        {!loadingContents && <SlideContainer title="배우기" contents={contentsState} recommend={[0, 1, 2]}></SlideContainer> }
+        {!loadingContents && <SlideContainer title="따라하기" contents={contentsState} recommend={[8, 9, 3]}></SlideContainer> }
+        {!loadingContents && <SlideContainer title="소리" contents={contentsState} recommend={[4, 5, 6, 7]}></SlideContainer> }
       </IonContent>
     </IonPage>
   );

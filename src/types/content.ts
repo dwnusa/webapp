@@ -6,6 +6,9 @@ export enum ContentType {
 export interface Content {
   id: number;
   FNAME: string;
+  TITLE: string;
+  COMMENT1: string;
+  COMMENT2: string;
   TYPE: ContentType;
   CAT: string;
   FILE: string;

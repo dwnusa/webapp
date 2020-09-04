@@ -18,15 +18,30 @@
 }
 
 .content {
-  width: 281px;
-  height: 166px;
-  margin: 20px;
-  background-color: gray;
+  /*border: red solid;*/
+  /*width: 500px;*/
+  /*width: 281px;*/
+  height: 150px;
+  margin: 10px;
+  background-color: #35383C;
+}
+.content-text-box {
+  /*border: green solid;*/
+  height: 150px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: center;*/
+}
+.content-text-box > div{
+  /*border: blue solid;*/
+  padding: 4px;
 }
 
 .grid > .content {
   width: 104px;
-  height: 123px;
+  /*height: 123px;*/
   margin: 15px;
   background-color: gray;
   margin: 10px auto;

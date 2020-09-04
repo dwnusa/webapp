@@ -7,24 +7,33 @@ import {
   IonCardTitle,
   IonCardContent,
 } from "@ionic/react";
+import { Content } from "../../types";
 
 interface ContainerProps {
   title: string;
+  contents: Content[];
+  recommend: number[];
 }
 
-const GridContainer: React.FC<ContainerProps> = ({ title }) => {
+const GridContainer: React.FC<ContainerProps> = ({ title ,contents, recommend}) => {
+  const listItemStyle = {
+    background: `url("${contents[0].thumbnail}")`,
+    backgroundSize: "100%",
+    // border: "red solid",
+  };
+  console.log("content: ", contents)
   return (
     <div className="slide-container">
       <h2>{title}</h2>
       <div className="grid">
-        {[...new Array(2)].map((_, i) => (
-          <IonCard key={i}>
+        {recommend.map((v, i) => (
+          <IonCard key={i} style={{background: `url(${contents[v].thumbnail})`, backgroundSize: "100%", opacity: "0.6"}}>
             <IonCardHeader>
-              <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-              <IonCardTitle>Card Title</IonCardTitle>
+              <IonCardSubtitle>{contents[v].FNAME}</IonCardSubtitle>
+              <IonCardTitle>{contents[v].CAT}</IonCardTitle>
             </IonCardHeader>
 
-            <IonCardContent>content</IonCardContent>
+            <IonCardContent>{contents[v].TYPE}</IonCardContent>
           </IonCard>
         ))}
       </div>
