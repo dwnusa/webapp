@@ -24,8 +24,8 @@ const MainTab: React.FC<MainTabProps> = ({ updateUserId }) => {
   const [username, setUsername] = useState("익명");
   const [qactive, setQactive] = useState(false);
   const { userId } = useParams();
-  const [loading, setloading] = useState(true);
-  const [loadingContents, setloadingContents] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [loadingContents, setLoadingContents] = useState(true);
   const [contentsState, contentsSetState] = useState<Content[]>([]);
 
   useEffect(() => {
@@ -34,18 +34,18 @@ const MainTab: React.FC<MainTabProps> = ({ updateUserId }) => {
       if (res.status === httpStatus.OK) {
         setUsername(res.result[0].USERNAME);
         setQactive(res.result[0].QACTIVE);
-        setloading(false);
+        setLoading(false);
       }
     });
 
     get("/content").then((res) => {
-      setloadingContents(true);
+      setLoadingContents(true);
       if (res.status === httpStatus.OK) {
         contentsSetState(res.result);
       }
-      setloadingContents(false);
+      setLoadingContents(false);
     });
-    setloading(true);
+    setLoading(true);
     updateUserId(id);
   }, [userId, updateUserId]);
   return (
