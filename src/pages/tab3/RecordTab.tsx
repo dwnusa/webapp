@@ -26,7 +26,7 @@ const RecordTab: React.FC = () => {
     });
     // console.log("location.pathname: ", pathnameState);
     return () => pathnameSetState(pathname);
-  }, [pathname]);
+  }, [pathname, id]);
   return (
     <IonPage>
       <IonContent>

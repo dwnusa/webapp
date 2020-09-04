@@ -35,7 +35,7 @@ const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
       // console.log("same? ", today===records[0].date);
       setisRecorded(today===records[0].date);
     }
-  }, [isRecorded]);
+  }, [isRecorded, records]);
 
   return (
     <Container>

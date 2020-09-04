@@ -41,7 +41,7 @@ const MainTab: React.FC<MainTabProps> = ({updateUserId}) => {
     setloading(true);
     updateUserId(id);
 
-  }, [userId]);
+  }, [userId, updateUserId]);
   return (
     <IonPage>
       <IonContent>
