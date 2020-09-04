@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { IonContent, IonPage, IonModal } from "@ionic/react";
 import MainContainer from "components/containers/MainContainer";
 import SlideContainer from "components/containers/SlideContainer";
-import GridContainer from "components/containers/GridContainer";
 import SurveyAlert from "components/tab1/alerts/SurveyAlert";
 import Survey from "components/tab1/survey/Survey";
 import { useParams } from "react-router-dom";

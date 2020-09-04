@@ -3,11 +3,6 @@ import "./Container.css";
 import {
   IonSlides,
   IonSlide,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonCardContent,
-  IonCard
 } from "@ionic/react";
 import { Content } from "../../types";
 
