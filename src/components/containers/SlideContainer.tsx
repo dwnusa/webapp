@@ -1,9 +1,6 @@
 import React from "react";
 import "./Container.css";
-import {
-  IonSlides,
-  IonSlide,
-} from "@ionic/react";
+import { IonSlides, IonSlide } from "@ionic/react";
 import { Content } from "../../types";
 
 interface ContainerProps {
@@ -18,8 +15,11 @@ const slideOpts = {
   speed: 400,
 };
 
-const SlideContainer: React.FC<ContainerProps> = ({ title,contents,recommend }) => {
-  // console.log("contents: ", contents)
+const SlideContainer: React.FC<ContainerProps> = ({
+  title,
+  contents,
+  recommend,
+}) => {
   return (
     <div className="slide-container">
       <h2>{title}</h2>
@@ -27,27 +27,33 @@ const SlideContainer: React.FC<ContainerProps> = ({ title,contents,recommend }) 
         {recommend.map((v, i) => {
           return (
             <IonSlide key={i}>
-              {/*<div className="content" style={{background: `url(${contents[v].thumbnail})`, backgroundSize: "100%", textAlign:"left"}}>*/}
-              <div className="content" style={{
-                // border:"red solid",
-                // backgroundColor: "#35383C",
-                // backgroundSize: "100%",
-
-                textAlign:"left",
-                display:"flex", flexDirection:"row",
-                justifyContent:"center", alignItems:"center",
-              }}>
-              {/*<IonCardHeader>*/}
-              {/*  <IonCardSubtitle>123123</IonCardSubtitle>*/}
-              {/*  <IonCardTitle>321321</IonCardTitle>*/}
-              {/*</IonCardHeader>*/}
-              {/*  <div style={{background: `url(${contents[v].thumbnail})`, backgroundSize: "100%", width:"100%", height:"100%"}}>aaa</div>*/}
-                <div style={{display:"flex", alignItems:"center", width: "160px", height:"160px"}}>
-                  <img src={`${contents[v].thumbnail}`} alt="nothing" style={{height:"90%"}}/>
+              <div
+                className="content"
+                style={{
+                  textAlign: "left",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    width: "160px",
+                    height: "160px",
+                  }}
+                >
+                  <img
+                    src={`${contents[v].thumbnail}`}
+                    alt="nothing"
+                    style={{ height: "90%" }}
+                  />
                 </div>
                 <div className="content-text-box">
                   <div>{contents[v].TITLE}</div>
-                  <br/>
+                  <br />
                   <div>"{contents[v].COMMENT1}"</div>
                   <div>{contents[v].COMMENT2}</div>
                 </div>

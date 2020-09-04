@@ -34,7 +34,6 @@ const RecordComponent: React.FC<RecordComponentProps> = ({
       setcontentCount(10);
     }
   }, [isRecorded, records]);
-  console.log(existRecord, records);
 
   return (
     <Container style={{ paddingBottom: "20px" }}>

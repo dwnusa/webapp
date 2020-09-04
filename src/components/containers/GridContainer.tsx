@@ -15,14 +15,24 @@ interface ContainerProps {
   recommend: number[];
 }
 
-const GridContainer: React.FC<ContainerProps> = ({ title ,contents, recommend}) => {
-  console.log("content: ", contents)
+const GridContainer: React.FC<ContainerProps> = ({
+  title,
+  contents,
+  recommend,
+}) => {
   return (
     <div className="slide-container">
       <h2>{title}</h2>
       <div className="grid">
         {recommend.map((v, i) => (
-          <IonCard key={i} style={{background: `url(${contents[v].thumbnail})`, backgroundSize: "100%", opacity: "0.6"}}>
+          <IonCard
+            key={i}
+            style={{
+              background: `url(${contents[v].thumbnail})`,
+              backgroundSize: "100%",
+              opacity: "0.6",
+            }}
+          >
             <IonCardHeader>
               <IonCardSubtitle>{contents[v].FNAME}</IonCardSubtitle>
               <IonCardTitle>{contents[v].CAT}</IonCardTitle>
