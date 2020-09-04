@@ -69,14 +69,14 @@ const PlayerPage: React.FC<PlayerPageProps> = ({ contents, play, actions }) => {
         horizontal="end"
         slot="fixed"
       >
-        <IonIcon icon={close} onClick={() => history.push("/tab2/"+userId)} />
+        <IonIcon icon={close} onClick={() => history.push("/tab2/" + userId)} />
       </IonFab>
       <IonContent className="audio-player-img">
         <img alt="" src={currentContent?.thumbnail} />
       </IonContent>
       <IonFooter>
         <AudioPlayer
-          header={currentContent?.FNAME}
+          header={currentContent?.TITLE}
           src={
             currentContent?.FILE
               ? process.env.REACT_APP_BASE_URL + currentContent.FILE

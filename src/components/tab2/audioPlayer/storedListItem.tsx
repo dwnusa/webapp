@@ -21,7 +21,7 @@ const StoredListItem: React.FC<StoredListItemProps> = ({
           <img alt="" src={content.thumbnail} width="75" height="75"></img>
         </span>
         <span className="text-content">
-          <div>{content.FNAME}</div>
+          <div>{content.TITLE}</div>
           <div>{content.playingTime}</div>
         </span>
       </div>
