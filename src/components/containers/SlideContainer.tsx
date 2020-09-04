@@ -43,7 +43,7 @@ const SlideContainer: React.FC<ContainerProps> = ({ title,contents,recommend }) 
               {/*</IonCardHeader>*/}
               {/*  <div style={{background: `url(${contents[v].thumbnail})`, backgroundSize: "100%", width:"100%", height:"100%"}}>aaa</div>*/}
                 <div style={{display:"flex", alignItems:"center", width: "160px", height:"160px"}}>
-                  <img src={`${contents[v].thumbnail}`} alt="no image"/>
+                  <img src={`${contents[v].thumbnail}`} alt="nothing"/>
                 </div>
                 <div className="content-text-box">
                   <div>{contents[v].TITLE}</div>
