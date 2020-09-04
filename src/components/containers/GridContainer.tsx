@@ -16,11 +16,6 @@ interface ContainerProps {
 }
 
 const GridContainer: React.FC<ContainerProps> = ({ title ,contents, recommend}) => {
-  const listItemStyle = {
-    background: `url("${contents[0].thumbnail}")`,
-    backgroundSize: "100%",
-    // border: "red solid",
-  };
   console.log("content: ", contents)
   return (
     <div className="slide-container">

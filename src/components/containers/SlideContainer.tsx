@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Container.css";
 import {
   IonSlides,
@@ -19,11 +19,6 @@ const slideOpts = {
 };
 
 const SlideContainer: React.FC<ContainerProps> = ({ title,contents,recommend }) => {
-  const listItemStyle = {
-    background: `url("${contents[0].thumbnail}")`,
-    backgroundSize: "100%",
-    // border: "red solid",
-  };
   console.log("contents: ", contents)
   return (
     <div className="slide-container">
@@ -48,7 +43,7 @@ const SlideContainer: React.FC<ContainerProps> = ({ title,contents,recommend }) 
               {/*</IonCardHeader>*/}
               {/*  <div style={{background: `url(${contents[v].thumbnail})`, backgroundSize: "100%", width:"100%", height:"100%"}}>aaa</div>*/}
                 <div style={{display:"flex", alignItems:"center", width: "160px", height:"160px"}}>
-                  <img src={`${contents[v].thumbnail}`}/>
+                  <img src={`${contents[v].thumbnail}`} alt="no image"/>
                 </div>
                 <div className="content-text-box">
                   <div>{contents[v].TITLE}</div>
