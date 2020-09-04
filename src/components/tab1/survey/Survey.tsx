@@ -18,9 +18,14 @@ import { post } from "services";
 interface SurveyProps {
   setShowModal: (trigger: boolean) => void;
   userId: number;
+  setQactive: any;
 }
 
-const Survey: React.FC<SurveyProps> = ({ setShowModal, userId }) => {
+const Survey: React.FC<SurveyProps> = ({
+  setShowModal,
+  userId,
+  setQactive,
+}) => {
   const [currentNum, setCurrentNum] = useState<number>(0);
   const [surveyResult, setSurveyResult] = useState<number[]>([]);
   const [currentResult] = useState<number>();
@@ -43,6 +48,7 @@ const Survey: React.FC<SurveyProps> = ({ setShowModal, userId }) => {
           onDidDismiss={() => {
             setShowModal(false);
             setShowAlert(false);
+            setQactive(true);
           }}
           message={"제출 되었습니다."}
           buttons={["OK"]}

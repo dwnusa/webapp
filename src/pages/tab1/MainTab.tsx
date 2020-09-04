@@ -52,7 +52,11 @@ const MainTab: React.FC<MainTabProps> = ({ updateUserId }) => {
     <IonPage>
       <IonContent>
         <IonModal isOpen={showModal} cssClass="my-custom-class">
-          <Survey setShowModal={setShowModal} userId={userId}></Survey>
+          <Survey
+            setQactive={setQactive}
+            setShowModal={setShowModal}
+            userId={userId}
+          ></Survey>
         </IonModal>
         {!qactive && !loading && (
           <SurveyAlert setShowModal={setShowModal}></SurveyAlert>
