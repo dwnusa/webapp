@@ -19,7 +19,10 @@ h2,
 .alert-title.sc-ion-alert-ios,
 #alert-1-msg,
 .item.sc-ion-label-ios-h,
-.item .sc-ion-label-ios-h {
+.item .sc-ion-label-ios-h,
+.alert-title.sc-ion-alert-md,
+.item.sc-ion-label-md-h,
+.item .sc-ion-label-md-h {
   color: white;
 }
 
