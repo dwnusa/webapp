@@ -4,7 +4,6 @@ import { IonSegmentButton, IonSegment, IonLabel } from "@ionic/react";
 import List from "./list";
 import "./index.css";
 import StoredList from "./storedList";
-import { Content } from "../../../types";
 
 interface AudioProps {
   userId: number;
