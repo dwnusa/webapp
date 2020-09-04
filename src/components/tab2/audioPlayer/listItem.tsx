@@ -12,13 +12,14 @@ import AudioPlayer from "react-h5-audio-player";
 interface ListItemProps {
   actions: any;
   content: Content;
+  setShowToast: any;
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
   actions: bindActionCreators(Actions, dispatch),
 });
 
-const ListItem: React.FC<ListItemProps> = ({ content, actions }) => {
+const ListItem: React.FC<ListItemProps> = ({ content, actions, setShowToast }) => {
   const [playing, playingSetState] = useState<boolean>(false);
   const listItemStyle = {
     background: `url("${content.thumbnail}")`,
@@ -49,6 +50,7 @@ const ListItem: React.FC<ListItemProps> = ({ content, actions }) => {
               icon={arrowDown}
               onClick={() => {
                 actions.addContent(content);
+                setShowToast(true);
               }}
             ></IonIcon>
           </div>

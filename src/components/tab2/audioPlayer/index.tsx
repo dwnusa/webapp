@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IonSegmentButton, IonSegment, IonLabel } from "@ionic/react";
+import { IonSegmentButton, IonSegment, IonLabel, IonToast } from "@ionic/react";
 
 import List from "./list";
 import "./index.css";
@@ -9,11 +9,18 @@ interface AudioProps {
   userId: number;
 }
 
-const AudioPlayerList: React.FC<AudioProps> = ({userId}) => {
+const AudioPlayerList: React.FC<AudioProps> = ({ userId }) => {
   const [segmentState, setSegmentState] = useState<string>("list");
-
+const [showToast, setShowToast] = useState(false)
   return (
     <div>
+      <IonToast
+        isOpen={showToast}
+        onDidDismiss={() => setShowToast(false)}
+        message="추가 되었습니다."
+        duration={200}
+        position="top"
+      />
       <IonSegment
         className="custom-tab-segment"
         onIonChange={(e) => {
@@ -35,8 +42,8 @@ const AudioPlayerList: React.FC<AudioProps> = ({userId}) => {
         </IonSegmentButton>
       </IonSegment>
       <div className="list-wrapper">
-        {segmentState === "list" && <List />}
-        {segmentState === "stored" && <StoredList userId={userId}/>}
+        {segmentState === "list" && <List setShowToast={setShowToast}/>}
+        {segmentState === "stored" && <StoredList userId={userId} />}
       </div>
     </div>
   );

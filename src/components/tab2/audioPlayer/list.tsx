@@ -4,8 +4,10 @@ import "./index.css";
 import { Content, ContentType } from "types/content";
 import { get } from "services";
 import { httpStatus } from "types";
-
-const List: React.FC = () => {
+interface ListProps {
+  setShowToast: any
+}
+const List: React.FC<ListProps> = ({setShowToast}) => {
   const [contentsState, contentsSetState] = useState<Content[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +29,7 @@ const List: React.FC = () => {
           contentsState
             .filter((content) => content.TYPE === ContentType.Audio)
             .map((content, i) => {
-              return <ListItem content={content} key={i} />;
+              return <ListItem setShowToast={setShowToast} content={content} key={i} />;
             })}
       </div>
       <p>배움 컨텐츠</p>
@@ -36,7 +38,7 @@ const List: React.FC = () => {
           contentsState
             .filter((content) => content.TYPE === ContentType.Lecture)
             .map((content, i) => {
-              return <ListItem content={content} key={i} />;
+              return <ListItem setShowToast={setShowToast} content={content} key={i} />;
             })}
       </div>
     </div>
