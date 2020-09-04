@@ -69,3 +69,21 @@ ion-tab-bar {
 .CircularProgressbar .CircularProgressbar-text {
   fill: #3880ff;
 }
+
+.container-survey {
+  margin-top: 15vh;
+  padding: 20px;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.container-survey > .sub {
+  font-size: 18px;
+  color: #4370ff;
+}
+.container-survey > .action {
+  width: 100vw;
+  text-align: center;
+  padding-top: 40px;
+  padding-right: 20px;
+}
