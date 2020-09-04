@@ -19,7 +19,10 @@ h2,
 .alert-title.sc-ion-alert-ios,
 #alert-1-msg,
 .item.sc-ion-label-ios-h,
-.item .sc-ion-label-ios-h {
+.item .sc-ion-label-ios-h,
+.alert-title.sc-ion-alert-md,
+.item.sc-ion-label-md-h,
+.item .sc-ion-label-md-h {
   color: white;
 }
 
@@ -55,4 +58,14 @@ ion-tab-bar {
 .modal_container {
   width: 300px;
   margin-left: 6%;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  opacity: 0;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3880ff;
 }

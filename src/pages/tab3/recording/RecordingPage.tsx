@@ -56,7 +56,6 @@ const RecordingPage: React.FC = () => {
       opt5Ach: false,
       opt6Med: false,
     });
-    console.log("updateRecord")
   }, [userId]);
 
   return (
@@ -65,7 +64,7 @@ const RecordingPage: React.FC = () => {
         <IonIcon
           icon={close}
           onClick={() => {
-            history.push("/tab3/"+userId);
+            history.push("/tab3/" + userId);
           }}
         />
       </IonFab>
@@ -131,11 +130,13 @@ const RecordingPage: React.FC = () => {
         </IconContainer>
       </IonContent>
 
-      <IonButton expand="block" onClick={() => {
-        updateRecord();
-        // history.push("/tab3/"+userId+"/recorded");
-        history.push("/tab3/"+userId+"/recorded");
-      }}>
+      <IonButton
+        expand="block"
+        onClick={() => {
+          updateRecord();
+          history.push("/tab3/" + userId + "/recorded");
+        }}
+      >
         저장하기
       </IonButton>
     </IonPage>

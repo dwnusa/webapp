@@ -25,13 +25,50 @@ const mapDispatchToProps = (dispatch: any) => ({
   actions: bindActionCreators(Actions, dispatch),
 });
 
-const StoredList: React.FC<StoredListProps> = ({ contents, actions, userId }) => {
+const StoredList: React.FC<StoredListProps> = ({
+  contents,
+  actions,
+  userId,
+}) => {
   const [alarmAct, setAlarmAct] = useState<boolean>(true);
-  // console.log("deep: ", userId)
+  const sumPlayingTime = contents.reduce<string>(
+    (
+      previousValue: string,
+      currentValue: Content,
+      currentIndex: number,
+      array: Content[]
+    ): string => {
+      const [min1 = "0", sec1 = "0"] = previousValue?.split(":") || [];
+      const [min2 = "0", sec2 = "0"] = currentValue.playingTime.split(":");
+
+      let result = {
+        min: +min1 + +min2,
+        sec: +sec1 + +sec2,
+      };
+
+      if (result.sec >= 60) {
+        result = {
+          min: result.min + 1,
+          sec: result.sec - 60,
+        };
+      }
+
+      return `${result.min}:${result.sec}`;
+    },
+    ""
+  );
+
   return (
     <div className="row-list">
       <div className="sorted-info">
-        <p>총 42분 17초</p>
+        {+sumPlayingTime.split(":")[0] > 0 &&
+          +sumPlayingTime.split(":")[1] > 0 && (
+            <p>
+              총 {sumPlayingTime.split(":")[0]}분 {sumPlayingTime.split(":")[1]}
+              초
+            </p>
+          )}
+
         <p
           className={`${alarmAct ? "sorted-alarm" : ""}`}
           onClick={() => setAlarmAct(!alarmAct)}
@@ -53,7 +90,7 @@ const StoredList: React.FC<StoredListProps> = ({ contents, actions, userId }) =>
         disabled={contents.length === 0}
         onClick={() => {
           actions.setPlay(true);
-          history.push("./"+userId+"/player");
+          history.push("./" + userId + "/player");
         }}
       >
         시작하기

@@ -8,6 +8,8 @@ import * as Actions from "actions";
 import { connect } from "react-redux";
 import { Content } from "types";
 import AudioPlayer from "react-h5-audio-player";
+import history from "reactHistory";
+import { useParams } from "react-router";
 
 interface ListItemProps {
   actions: any;
@@ -19,7 +21,12 @@ const mapDispatchToProps = (dispatch: any) => ({
   actions: bindActionCreators(Actions, dispatch),
 });
 
-const ListItem: React.FC<ListItemProps> = ({ content, actions, setShowToast }) => {
+const ListItem: React.FC<ListItemProps> = ({
+  content,
+  actions,
+  setShowToast,
+}) => {
+  const { userId } = useParams();
   const [playing, playingSetState] = useState<boolean>(false);
   const listItemStyle = {
     background: `url("${content.thumbnail}")`,
@@ -27,7 +34,15 @@ const ListItem: React.FC<ListItemProps> = ({ content, actions, setShowToast }) =
   };
 
   return (
-    <div className="list-item" style={listItemStyle}>
+    <div
+      className="list-item"
+      style={listItemStyle}
+      onClick={() => {
+        actions.addContentFirstOrder(content);
+        actions.setPlay(true);
+        history.push(`./${userId}/player`);
+      }}
+    >
       <div className="list-item-container">
         <div className="file-name">{content.TITLE}</div>
         <div className="actions">
