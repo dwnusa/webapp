@@ -134,7 +134,7 @@ const RecordingPage: React.FC = () => {
       <IonButton expand="block" onClick={() => {
         updateRecord();
         // history.push("/tab3/"+userId+"/recorded");
-        history.push("/tab3/"+userId);
+        history.push("/tab3/"+userId+"/recorded");
       }}>
         저장하기
       </IonButton>
