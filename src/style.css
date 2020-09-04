@@ -56,3 +56,9 @@ ion-tab-bar {
   width: 300px;
   margin-left: 6%;
 }
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  opacity: 0;
+}

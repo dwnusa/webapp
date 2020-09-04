@@ -11,7 +11,7 @@ interface AudioProps {
 
 const AudioPlayerList: React.FC<AudioProps> = ({ userId }) => {
   const [segmentState, setSegmentState] = useState<string>("list");
-const [showToast, setShowToast] = useState(false)
+  const [showToast, setShowToast] = useState(false);
   return (
     <div>
       <IonToast
@@ -42,7 +42,7 @@ const [showToast, setShowToast] = useState(false)
         </IonSegmentButton>
       </IonSegment>
       <div className="list-wrapper">
-        {segmentState === "list" && <List setShowToast={setShowToast}/>}
+        {segmentState === "list" && <List setShowToast={setShowToast} />}
         {segmentState === "stored" && <StoredList userId={userId} />}
       </div>
     </div>
