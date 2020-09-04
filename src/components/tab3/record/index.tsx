@@ -14,44 +14,36 @@ interface RecordComponentProps {
   userId: number;
 }
 
-const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
+const RecordComponent: React.FC<RecordComponentProps> = ({
+  records,
+  userId,
+}) => {
   const percentage1 = 60;
   const percentage2 = 70;
-  // const isRecorded = true;
   const [isRecorded, setisRecorded] = useState(false);
   const [existRecord, setexistRecord] = useState(false);
-  const [contentCount, setcontentCount] = useState<number>(0);
-  // setisRecorded(true);
-  // const todayCheck = useCallback( ()=> {
-  //   console.log("useCallback");
-  // }, []);
+  const [, setcontentCount] = useState<number>(0);
   useEffect(() => {
-    // console.log("records: ", records.length)
-    if (records.length === 0){
+    if (records.length === 0) {
       setisRecorded(false);
       setexistRecord(false);
-    }
-    else{
+    } else {
       const today = moment().format("YYYY-MM-DD");
-      // console.log("today: ", today);
-      // console.log("latest record: ", records[0].date);
-      // console.log("same? ", today===records[0].date);
-      setisRecorded(today===records[0].date);
+      setisRecorded(today === records[0].date);
       setexistRecord(true);
-      // setcontentCount(records[0].contentsCount);
       setcontentCount(10);
     }
   }, [isRecorded, records]);
-  console.log(existRecord, records)
+  console.log(existRecord, records);
 
   return (
-    <Container style={{ paddingBottom: "20px"}}>
+    <Container style={{ paddingBottom: "20px" }}>
       <div className="today">{moment().format("YYYY.MM.DD")}</div>
       {!isRecorded && (
         <div
           className="title"
           onClick={() => {
-            history.push("./"+userId+"/recording");
+            history.push("./" + userId + "/recording");
           }}
         >
           수면 기록하기
@@ -79,17 +71,18 @@ const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
           </div>
         </div>
       )}
-      {existRecord &&
+      {existRecord && (
         <div className="record">
           <div>
             <div className="latest-record">{records[0].date}</div>
             <div className="flex record-title-container">
               <div className="record-flex-row">
                 <span className="record-title">최근 사용기록</span>
-                <span className="record-title">{records[0].contentsDuration}</span>
+                <span className="record-title">
+                  {records[0].contentsDuration}
+                </span>
               </div>
             </div>
-            {/*{Array.from(Array(contentCount), (_, i) => i + 1).map((v)=>console.log(v))}*/}
             <div className="flex">
               <span>호흡법 강의</span>
               <span>3:01</span>
@@ -99,37 +92,36 @@ const RecordComponent: React.FC<RecordComponentProps> = ({records, userId}) => {
               <span>2:00</span>
             </div>
             <div className="flex">
-              <span>	편안한 마음 갖기</span>
+              <span> 편안한 마음 갖기</span>
               <span>29:49</span>
             </div>
             <div className="record-replay">
-                <span
-                  onClick={() => {
-                    history.push("/tab2/"+userId+"/player");
-                  }}
-                >
-                  다시듣기
-                </span>
+              <span
+                onClick={() => {
+                  history.push("/tab2/" + userId + "/player");
+                }}
+              >
+                다시듣기
+              </span>
             </div>
           </div>
         </div>
-      }
-      {!existRecord &&
+      )}
+      {!existRecord && (
         <div className="record">
           <div className="no-record-text">
             <span>수면기록이 없어요</span>
             <span>오늘 밤, 닥터자마를 만나보세요</span>
-            {/*<span>00:00</span>*/}
           </div>
         </div>
-      }
+      )}
     </Container>
   );
 };
 
 const Container = styled.div`
   .CircularProgressbar-path {
-    stroke: #4370FF;
+    stroke: #4370ff;
   }
   background-color: #34373c;
   height: fit-content;
@@ -163,9 +155,8 @@ const Container = styled.div`
     }
   }
   .record {
-    border-top: 1px solid #4370FF;
+    border-top: 1px solid #292d30;
     margin: 22px;
-    padding: 10px;
     .flex {
       display: flex;
       justify-content: space-between;

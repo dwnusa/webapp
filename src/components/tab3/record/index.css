@@ -1,39 +1,24 @@
 .record-replay {
   text-align: right;
-  color: #4370FF;
+  color: #4370ff;
 }
 .CircularProgressbar .CircularProgressbar-path {
-  stroke: #4370FF;
+  stroke: #4370ff;
 }
-.record{
-  /*border: red solid;*/
-  /*height: 20%;*/
-}
-.title {
-  /*border: red solid;*/
-}
-.no-record-text{
+.no-record-text {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .no-record-text > span {
-  /*border: red solid;*/
   margin: 10px;
 }
 .record-flex-row {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .latest-record {
-  /*border: red solid;*/
   margin-top: 10px;
   margin-bottom: 20px;
-}
-.record-title-container{
-  /*border: red solid;*/
-}
-.flex{
-  /*border: green solid;*/
 }
