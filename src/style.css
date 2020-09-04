@@ -65,3 +65,7 @@ ion-tab-bar {
 .swiper-container-horizontal > .swiper-pagination-bullets {
   opacity: 0;
 }
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3880ff;
+}
