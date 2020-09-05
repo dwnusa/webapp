@@ -37,7 +37,7 @@ const RecordComponent: React.FC<RecordComponentProps> = ({
 
   return (
     <Container style={{ paddingBottom: "20px" }}>
-      <div className="today">{moment().format("YYYY.MM.DD")}</div>
+      <div className="today">{moment().format("YYYY-MM-DD")}</div>
       {!isRecorded && (
         <div
           className="title"

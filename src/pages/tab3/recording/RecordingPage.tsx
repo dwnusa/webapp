@@ -42,7 +42,8 @@ const RecordingPage: React.FC = () => {
   ];
   const updateRecord = useCallback(async () => {
     post(`/record/user/${userId}`, {
-      date: "2020-09-04",
+      // date: "2020-09-04",
+      date: moment().format("YYYY-MM-DD"),
       readyAt: "20:00:00",
       startAt: "23:00:00",
       endAt: "06:00:00",
@@ -58,6 +59,8 @@ const RecordingPage: React.FC = () => {
     });
   }, [userId]);
 
+  const currentDate = moment().format("YYYY-MM-DD");
+  console.log("currentDate: ", currentDate);
   return (
     <IonPage>
       <IonFab vertical="top" horizontal="end" slot="fixed">
