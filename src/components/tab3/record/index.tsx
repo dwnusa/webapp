@@ -8,6 +8,7 @@ import history from "reactHistory";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { Record } from "../../../types";
+import { useLocation } from "react-router-dom";
 
 interface RecordComponentProps {
   records: Record[];
@@ -23,6 +24,7 @@ const RecordComponent: React.FC<RecordComponentProps> = ({
   const [isRecorded, setisRecorded] = useState(false);
   const [existRecord, setexistRecord] = useState(false);
   const [, setcontentCount] = useState<number>(0);
+  const { state } = useLocation();
   useEffect(() => {
     if (records.length === 0) {
       setisRecorded(false);
@@ -34,7 +36,7 @@ const RecordComponent: React.FC<RecordComponentProps> = ({
       setcontentCount(10);
     }
   }, [isRecorded, records]);
-
+  console.log("state: ", state)
   return (
     <Container style={{ paddingBottom: "20px" }}>
       <div className="today">{moment().format("YYYY-MM-DD")}</div>

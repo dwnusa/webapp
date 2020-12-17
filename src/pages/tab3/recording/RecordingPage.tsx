@@ -60,14 +60,14 @@ const RecordingPage: React.FC = () => {
   }, [userId]);
 
   const currentDate = moment().format("YYYY-MM-DD");
-  console.log("currentDate: ", currentDate);
+  // console.log("currentDate: ", currentDate);
   return (
     <IonPage>
       <IonFab vertical="top" horizontal="end" slot="fixed">
         <IonIcon
           icon={close}
           onClick={() => {
-            history.push("/tab3/" + userId);
+            history.push({pathname: "/tab3/" + userId, state: {recorded: true}});
           }}
         />
       </IonFab>
